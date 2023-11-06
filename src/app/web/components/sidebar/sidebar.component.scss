@@ -1,0 +1,24 @@
+.sidebar {
+  --bg-color: #FCFCFD;
+  --side-radius-min: 0.625rem;
+  --side-radius: 1rem;
+  --side-text-clr : #272727;
+  --font-size : 1.25rem;
+  --item-hover: #F0F0F0;
+  --sidebar-gray-background: #dce1eb;
+
+
+  display: flex;
+  min-height: 100dvh;
+  width: 18rem;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: var(--side-radius, 1rem);
+  padding: 1rem .63rem;
+  color: var(--side-radius);
+  background-color: var(--bg-color, #FCFCFD);
+  transition: all 0.1s ease-in-out;
+}

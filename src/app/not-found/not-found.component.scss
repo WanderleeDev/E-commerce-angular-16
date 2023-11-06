@@ -1,0 +1,67 @@
+@use '../../assets/sass/mixins.scss' as *;
+
+.error {
+  --err-primary-clr: #303030;
+  --err-clr: #F51DC1;
+  --err-clr-2: #2DFAFA;
+
+  height: 100dvh;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  background-color: var(--clr-primary, #000);
+
+  &-imgWrapper {
+    width: min(100%, 20rem);
+    position: relative;
+    height: 20rem;
+    aspect-ratio: 1/1;
+  }
+
+  &-img {
+    width: 100%;
+    object-fit: cover;
+    user-select: none;
+    position: absolute
+  }
+
+  &-title {
+    font-weight: 900;
+    font-size: var(--font-md);
+  }
+
+  &-data {
+    padding-block: 1rem;
+    text-align: center;
+    font-size: var(--font-base);
+    font-weight: 600;
+    color: var(--clr-secondary, #fff);
+  }
+
+  &-url {
+    display: block;
+    padding-block: inherit;
+    font-size: var(--font-sm);
+    letter-spacing: .05rem;
+    font-weight: 300;
+    text-decoration: underline;
+    cursor: not-allowed;
+  }
+
+  &-btnBack {
+    color: var(--err-primary-clr, #303030);
+    padding: .5rem 1rem;
+    margin-block: 1rem;
+    background: linear-gradient(
+      45deg, var(--err-clr, #F51DC1), var(--err-clr-2, #2DFAFA)
+    );
+    border-radius: var(--radius-xs, .5rem);
+    font-weight: 700;
+    outline-offset: .1rem;
+    cursor: pointer;
+    @include hover-active-styles;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@use '../../../../../../assets/sass/mixins.scss' as *;
+
+.details {
+  @include flex(column,center, center, 1rem);
+  border: .1rem solid var(--sidebar-gray-background, #dce1eb);
+  padding: .5rem;
+  margin-block: 4rem;
+  text-align: center;
+  border-radius: var(--side-radius, 1rem);
+  color: var(--side-text-clr, #272727);
+
+  &-img {
+
+  }
+
+  &-title {
+
+  }
+
+  &-btn {
+    font-size: .8rem;
+    min-height: 2.625rem;
+    padding: .5rem .75rem;
+    margin-bottom: -1.75rem;
+    border-radius: var(--side-radius, 1rem);
+    border: 1.5px solid var(--sidebar-gray-background, #dce1eb);
+    font-weight: 800;
+    background-color: #F4F5FC;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    &:hover {
+      background-color: var(--side-text-clr, #272727);
+      color: var(--bg-color, #FCFCFD);
+    }
+  }
+}

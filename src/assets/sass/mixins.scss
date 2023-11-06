@@ -1,0 +1,19 @@
+// bottom styles
+@mixin hover-active-styles {
+  transition: transform .1s linear;
+  &:hover {
+    transform: scale(.95);
+  }
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+//  flex
+@mixin flex($direction, $justify, $align, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items:  $align;
+  gap: $gap
+}

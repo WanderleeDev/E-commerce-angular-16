@@ -1,0 +1,40 @@
+@use '/src/assets/sass/mixins.scss' as *;
+
+.sideList {
+  color: var(--side-text-clr, #272727);
+  font-size: var(--font-size, 1.25rem);
+  border-top: 1px solid var(--sidebar-gray-background);
+  @include flex(column,center, center, .5rem);
+
+  &-item {
+    width: 100%;
+    height: 3.5rem;
+  }
+
+  &-link {
+    @include flex(row,flex-start, center, 1.9rem);
+    width: 100%;
+    margin-block: .5rem;
+    padding: 1rem;
+    transition: background-color 0.2s ease-in-out 0s;
+    border-radius: var(--side-radius-min, 0.625rem);
+    &:hover {
+      background-color: var(--item-hover, #F0F0F0);
+    }
+  }
+
+  &-text {
+    display: block;
+    text-transform: capitalize;
+  }
+
+  &-tooltip {
+    display: none;
+    color: aqua;
+  }
+}
+
+.active-route {
+  background-color: var(--side-text-clr, #272727);
+  color: var(--bg-color, #FCFCFD);
+}
