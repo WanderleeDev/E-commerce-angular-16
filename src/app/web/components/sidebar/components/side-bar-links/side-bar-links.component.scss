@@ -1,6 +1,8 @@
 @use '/src/assets/sass/mixins.scss' as *;
 
 .sideList {
+  --gradient: linear-gradient(45deg, var(--err-clr, #F51DC1), var(--err-clr-2, #2DFAFA));
+
   color: var(--side-text-clr, #272727);
   font-size: var(--font-size, 1.25rem);
   border-top: 1px solid var(--sidebar-gray-background);
@@ -12,7 +14,9 @@
   }
 
   &-link {
-    @include flex(row,flex-start, center, 1.9rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.9rem;
     width: 100%;
     margin-block: .5rem;
     padding: 1rem;
@@ -35,6 +39,10 @@
 }
 
 .active-route {
-  background-color: var(--side-text-clr, #272727);
+  background: var(
+    --gradient,
+    linear-gradient(45deg, var(--err-clr, #F51DC1), var(--err-clr-2, #2DFAFA))
+    );
   color: var(--bg-color, #FCFCFD);
+  font-weight: 900;
 }

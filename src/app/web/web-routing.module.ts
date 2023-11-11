@@ -2,8 +2,6 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 //  pages
 import { LayoutComponent } from "./layout/layout.component";
-import { LoginComponent } from "./pages/login/login.component";
-import { ProductComponent } from "./pages/product/product.component";
 import { HomeComponent } from "./pages/home/home.component";
 
 
@@ -24,11 +22,19 @@ const routes : Routes = [
       },
       {
         path: 'login',
-        component: LoginComponent
+        loadChildren: () =>
+          import('./pages/login/login.module').then(m => m.LoginModule),
+        data: {
+          preload: true
+        }
       },
       {
         path: 'product',
-        component: ProductComponent
+        loadChildren: () =>
+          import('./pages/product/product.module').then(m => m.ProductModule),
+        data: {
+          preload: true
+        }
       }
     ]
   },

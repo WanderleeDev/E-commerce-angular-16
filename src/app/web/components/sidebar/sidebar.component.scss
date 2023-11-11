@@ -8,11 +8,9 @@
   --sidebar-gray-background: #dce1eb;
 
 
-  display: flex;
+  display: grid;
+  grid-template-rows: 3.625rem;
   min-height: 100dvh;
-  width: 18rem;
-  flex-direction: column;
-  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -20,5 +18,5 @@
   padding: 1rem .63rem;
   color: var(--side-radius);
   background-color: var(--bg-color, #FCFCFD);
-  transition: all 0.1s ease-in-out;
+  z-index: 100;
 }

@@ -1,1 +1,6 @@
-hola home
+<app-banner />
+<section>
+  <div class="listroducts">
+    <app-card-product [productData]="product" *ngFor="let product of products"/>
+  </div>
+</section>

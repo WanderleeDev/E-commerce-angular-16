@@ -1,0 +1,18 @@
+.banner {
+  display: grid;
+  place-items: center;
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  height: 23rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 70rem) {
+    height: 30rem;
+  }
+
+  &-title {
+    mix-blend-mode: difference;
+  }
+}

@@ -1,0 +1,6 @@
+.listroducts {
+  display: grid;
+  padding-block: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+  gap: max(1rem, calc(1rem + 2vw));
+}

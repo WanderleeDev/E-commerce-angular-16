@@ -1,4 +1,8 @@
-<a class="wrapperLogo">
+<a class="wrapperLogo"
+  [ngClass]="{
+    col: isNavbarView,
+    'min-width': isNavbarView
+  }">
   <svg class="wrapperLogo-svg"
     width="48"
     fill="currentColor"
@@ -12,5 +16,8 @@
 
     </polygon>
   </svg>
-  <h1 class="wrapperLogo-title">Angular</h1>
+  <h1 class="wrapperLogo-title"
+  [class.col-hidden]="isNavbarView">
+    Angular
+  </h1>
 </a>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
+//  services
+import { CustomPreloadService } from './services/custom-preload.service';
 
 const routes: Routes = [
   {
@@ -15,12 +16,18 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundComponent
+    loadChildren: () =>
+      import('./not-found/not-found.module').then(m => m.NotFoundModule)
   }
 ];
 
+//  PreloadAllModules = pre cargar todas ls módulos luego de la pre cargar inicial
+//  CustomPreloadService = pre cargar personalizada implementada en un servicio para pre cargar a demanda
+//  QuickLink Strategy = biblioteca externa desarrollada  basada en API Intersection observer, cuando detecta un router link realiza la pre carga
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: CustomPreloadService
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

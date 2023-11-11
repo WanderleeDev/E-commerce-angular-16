@@ -1,1 +1,16 @@
-<p>card-product works!</p>
+<div class="product">
+  <figure class="product-figure">
+    <div class="product-imgWrapper">
+      <img class="product-img"
+        [ngSrc]="productData?.images?.[0] ?? 's'"
+        [alt]="productData?.title"
+        fill>
+    </div>
+    <figcaption class="product-title">
+      {{productData?.title}}
+    </figcaption>
+  </figure>
+  <div>
+
+  </div>
+</div>
