@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss']
 })
-export class NotFoundComponent {
-  protected url = window.location.hash;
+export class NotFoundComponent{
+  url = window.location.href;
 }

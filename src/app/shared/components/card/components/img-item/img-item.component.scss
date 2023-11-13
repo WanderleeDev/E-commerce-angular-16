@@ -1,0 +1,19 @@
+.productCard {
+  &-link {
+    position: relative;
+    width: inherit;
+    height: 20.5rem;
+  }
+
+  &-img {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+
+  &-name {
+    display: none;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    font-size: var(--font-md);
+  }
+}

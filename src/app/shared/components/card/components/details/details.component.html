@@ -1,0 +1,37 @@
+<section class="productData">
+
+  <header class="productData-header">
+
+    <h2 class="productData-title">
+      {{product.title }}
+    </h2>
+
+    <div class="productData-rating">
+      <span>{{product.rating}}</span>
+      <svg *ngFor="let num of ['','','']"
+        width="12" height="12" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+      </svg>
+    </div>
+
+  </header>
+
+  <div class="priceInfo">
+
+    <span class="priceInfo-price">{{product.price | currency}}</span>
+    <span class="priceInfo-discount" title="discount">
+      💸 {{product.discountPercentage }} %
+    </span>
+
+    <span class="priceInfo-priceBefore"
+      [title]="['before price $' + product.discountPercentage]">
+      🔄
+      <span class="priceInfo-icon">
+        {{product.discountPercentage | currency}}
+      </span>
+    </span>
+
+  </div>
+
+  <app-btn-shop />
+
+</section>

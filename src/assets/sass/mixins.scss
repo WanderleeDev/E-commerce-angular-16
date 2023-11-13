@@ -17,3 +17,32 @@
   align-items:  $align;
   gap: $gap
 }
+
+// customScrollbar
+@mixin customScrollbar {
+
+  &::-webkit-scrollbar {
+    width: .7rem;
+    height: .5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: linear-gradient(
+      90deg,
+      transparent 40%,
+      black 40%,
+      transparent 60%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.541);
+    border-radius: var(--radius-base, 1rem);
+    border: .15rem solid #000000;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: #ebc51d;
+    }
+  }
+}

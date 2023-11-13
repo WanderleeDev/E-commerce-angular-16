@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 //  services
 import { NavToggleService } from 'src/app/web/services/navToggle/nav-toggle.service';
 
@@ -8,7 +8,7 @@ import { NavToggleService } from 'src/app/web/services/navToggle/nav-toggle.serv
   templateUrl: './btn-toggle-collapse.component.html',
   styleUrls: ['./btn-toggle-collapse.component.scss']
 })
-export class BtnToggleCollapseComponent implements OnInit{
+export class BtnToggleCollapseComponent implements OnInit, OnDestroy{
   navbarSubscription = new Subscription();
   appearNavbar = false;
 
@@ -19,14 +19,14 @@ export class BtnToggleCollapseComponent implements OnInit{
   ngOnInit(): void {
     this.navbarSubscription = this.navToggleSvc.navObservable()
       .subscribe({
-        next: (res) => {
-          this.appearNavbar = res;
-          console.log('nav state obtain');
-
-        },
+        next: (res) => this.appearNavbar = res,
         error: (err) => console.error(err),
         complete: () => console.log('complete')
       })
+  }
+
+  ngOnDestroy(): void {
+    this.navbarSubscription.unsubscribe()
   }
 
   public navbarToggle (): void {

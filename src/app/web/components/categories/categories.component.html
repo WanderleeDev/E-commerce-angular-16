@@ -1,0 +1,31 @@
+<ul class="categories">
+  <li *ngFor="let category of listCategories, index as i"
+    class="categories-item">
+
+    <a class="categories-link"
+      [routerLink]="['/product/' + category.category]">
+      <img class="categories-img"
+        *ngIf="category.img; else errorImage"
+        (error)="errorImageLoaded($event)"
+        [ngSrc]="category.img"
+        [alt]="['category ' + category.item]"
+        fill>
+      <h3 class="categories-name">
+        {{category.item}}
+      </h3>
+    </a>
+
+    <span class="categories-index">
+      {{i + 1}}
+    </span>
+
+  </li>
+</ul>
+
+<ng-template #errorImage>
+  <img class="categories-img"
+    ngSrc="assets/img/default.png"
+    alt="Error trying to get the image"
+    title="Error trying to get the image"
+    fill>
+</ng-template>

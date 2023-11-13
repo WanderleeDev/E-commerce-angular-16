@@ -1,12 +1,20 @@
 .banner {
+  width: 100%;
   display: grid;
   place-items: center;
   font-size: var(--font-2xl);
   font-weight: 700;
   height: 23rem;
   background-size: cover;
-  background-position: center center;
+  background-attachment: fixed;
+  background-origin: center;
+  background-position: center;
   background-repeat: no-repeat;
+  aspect-ratio: 16/9;
+  background: var(
+      --gradient,
+      linear-gradient(45deg,  #F51DC1, #2DFAFA)
+    );
 
   @media screen and (min-width: 70rem) {
     height: 30rem;

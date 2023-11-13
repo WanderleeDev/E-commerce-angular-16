@@ -12,7 +12,7 @@ export class SideBarLinksComponent implements OnInit {
   links = [
     'home',
     'login',
-    'product',
+    'All products',
     'explore',
     'analytics',
     'reports'

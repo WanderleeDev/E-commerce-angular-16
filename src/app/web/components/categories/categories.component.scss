@@ -1,0 +1,84 @@
+.categories {
+  display: grid;
+  padding-block: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+  gap: max(1rem, calc(1rem + 2vw));
+
+  &-item {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.164);
+    width: 10rem;
+    height: 10rem;
+    margin-inline: auto;
+    border-radius: var(--radius-xs, .5rem);
+    overflow: hidden;
+    outline-offset: .4rem;
+    outline: solid .2rem transparent;
+    transition: outline-color .2s linear;
+
+    &:hover,
+    &:focus-within {
+      outline-color: currentColor;
+    }
+
+    &:hover img,
+    &:focus-within img {
+      filter: opacity(90%);
+      transform: scale(1.5);
+      transition: filter var(--timer-sm, .3s) linear,
+                  transform .5s linear;
+    }
+
+    &:hover .categories-index,
+    &:focus-within .categories-index {
+      opacity: 0;
+      filter: blur(.2rem);
+    }
+
+    &:hover .categories-name,
+    &:focus-within .categories-name {
+      color: #333;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: .2rem .5rem;
+      border-radius: .25rem;
+    }
+  }
+
+  &-link {
+    position: relative;
+    height: 100%;
+  }
+
+  &-img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    filter: opacity(30%);
+  }
+
+  &-name {
+    width: fit-content;
+    text-align: center;
+    font-size: var(--font-base);
+    font-weight: 600;
+    letter-spacing: .1rem;
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-index {
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    inset: .3rem auto auto .3rem;
+    border-radius: var(--radius-circle, 50%);
+    background: var(
+      --gradient,
+      linear-gradient(45deg,  #F51DC1, #2DFAFA)
+      );
+    font-weight: 600;
+    transition: opacity .3s linear;
+  }
+}

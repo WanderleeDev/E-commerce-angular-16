@@ -1,0 +1,113 @@
+@use '../../../../../../assets/sass/mixins.scss' as *;
+
+.productData {
+  display: grid;
+  box-shadow: inset 0 0 .8rem .05rem #a0a0a0;
+  gap: 2rem;
+  height: 100%;
+  align-content: space-between;
+
+  &-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 1.5rem 0;
+  }
+
+  &-title {
+    max-width: 10.125rem;
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    font-size: var(--font-md);
+    line-height: 1.4;
+    text-transform: capitalize;
+    height: 4rem;
+    overflow: auto;
+    transition: background linear .2s;
+    @include customScrollbar
+  }
+
+  &-rating {
+    display: flex;
+    gap: .5rem;
+    align-items: baseline;
+    font-size: var(--font-sm);
+    padding-block: .5rem;
+  }
+
+  &-btnCart {
+    padding-block: 1rem;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    &:hover {
+      background-color: #222;
+    }
+  }
+
+  &-svg {
+    fill: white;
+  }
+}
+
+.priceInfo {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: .7rem;
+  padding-inline: 1.5rem;
+
+  &-price {
+    grid-area: 1/1/3/1;
+    font-size: var(--font-base);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.718);
+    color: white;
+    padding: .3rem .5rem;
+    border-radius: var(--radius-min, .5rem);
+    &::first-letter {
+      margin-right: .3rem;
+      font-weight: 600;
+      color: #ebc51d;
+      font-size: var(--font-md);
+    }
+  }
+
+  &-priceBefore,
+  &-discount {
+    width: 4rem;
+    justify-self: flex-end;
+    &::first-letter {
+      margin-right: .2rem;
+    }
+  }
+
+  &-icon {
+    position: relative;
+    display: inline-block;
+    &::first-letter {
+      font-size: .8rem;
+      color: #ebc51d;
+      font-weight: 600;
+      margin-right: .3rem;
+    }
+
+    &::after {
+      content: '';
+      width: 120%;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      height: .15rem;
+      background-color: rgba(255, 0, 0, 0.5);
+      transform-origin: center;
+      transform: translate(-50%, -50%) ;
+    }
+  }
+}

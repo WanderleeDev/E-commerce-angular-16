@@ -1,0 +1,23 @@
+:host {
+  // display: contents;
+  container: card / inline-size;
+}
+
+.card {
+  width: min(100%, 30rem);
+  display: grid;
+  justify-self: center;
+  align-content: center;
+  margin-inline: auto;
+  background-color: white;
+  color: #333;
+  border-top-left-radius: var(--radius-base, .5rem);
+  border-top-right-radius: var(--radius-base, .5rem);
+  overflow: hidden;
+}
+
+@container card (width > 25rem) {
+  .card{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

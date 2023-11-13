@@ -12,7 +12,6 @@ export class NavToggleService {
   }
 
   public navObservable(): Observable<boolean> {
-    console.log('s');
     return this.navbarToggle$.asObservable();
   }
 }

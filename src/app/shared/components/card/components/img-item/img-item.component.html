@@ -1,0 +1,26 @@
+<figure class="productCard">
+  <a class="productCard-link"
+    aria-label="More Product Details"
+    title="More Product Details"
+    routerLink="/home">
+
+    <img class="productCard-img"
+      *ngIf="product.thumbnail; else errorImage"
+      (error)=" errorImgHandler($event)"
+      [ngSrc]="product.thumbnail"
+      fill
+      [alt]="product.title">
+
+    <figcaption class="productCard-name">
+      {{product.title}}
+    </figcaption>
+
+  </a>
+</figure>
+
+<ng-template #errorImage>
+  <img ngSrc="assets/img/default.png"
+    class="productCard-img"
+    alt="image error"
+    fill>
+</ng-template>

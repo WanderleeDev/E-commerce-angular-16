@@ -17,6 +17,8 @@ import { SmallDetailsComponent } from './components/sidebar/components/small-det
 import { BtnToggleCollapseComponent } from './components/sidebar/components/btn-toggle-collapse/btn-toggle-collapse.component';
 import { HttpProductsService } from './services/HttpProducts/http-products.service';
 import { BannerComponent } from './components/banner/banner.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { FooterComponent } from './components/footer/footer/footer.component';
 
 
 
@@ -31,6 +33,8 @@ import { BannerComponent } from './components/banner/banner.component';
     SmallDetailsComponent,
     BtnToggleCollapseComponent,
     BannerComponent,
+    CategoriesComponent,
+    FooterComponent,
   ],
   providers:[
     HttpProductsService

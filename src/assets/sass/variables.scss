@@ -22,10 +22,29 @@
   --font-3xl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
 
   //------------
-  --gradient: linear-gradient(45deg,  #F51DC1, , #2DFAFA);
+  --gradient: linear-gradient(45deg,  #F51DC1, #2DFAFA);
 
   //------------
-  --media-xs: 22.5rem;      //360px
-  --media-sm: 31.25;        //500px
-  --media: 43.75;           //700px
+  --media-xs: 22.5rem;      //  360px
+  --media-sm: 31.25rem;     //  500px
+  --media: 43.75rem;        //  700px
+  --media-lg: 75rem;        //  1200px
+
+  //------------
+  --timer-xs: .1s;
+  --timer-sm: .2s;
+  --timer-base: .3s;
+
+  //------------
+  --z-index-xs: 0;
+  --z-index-base: 1;
+  --z-index-sm: 2;
+  --z-index-md: 4;
+  --z-index-lg: 5;
+  --z-index-BasicFloatEle: 10;
+  --z-index-dialog: 50;
+  --z-index-priority: 100;
+  --z-index-important: 200; //  no usar
+  --z-index-before: -1; //  pseudoElement before
+  --z-index-after: 3; //  pseudoElement after
 }
