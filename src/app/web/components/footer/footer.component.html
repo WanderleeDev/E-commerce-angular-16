@@ -1,0 +1,48 @@
+<footer class="footer">
+  <div class="footer-content">
+
+    <div class="footer-info">
+      <app-logo
+        title="Angular 16"
+        [hasPartiallyHidden]="false"
+        [svgColor]="color"/>
+
+      <div class="footer-info-block">
+        <section *ngFor="let data of dataFooter">
+          <h3 class="footer-info-title">
+            {{data.subTitle}}
+          </h3>
+
+          <ul class="footer-info-list">
+            <li *ngFor="let li of data.links"
+              class="footer-info-item">
+              <a class="footer-info-link"
+                target="_blank"
+                [href]="li.href">
+                {{li.site}}
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <hr class="footer-divider"/>
+
+    <div class="footer-copy">
+      <span class="footer-copy-content">
+        Development by
+        <a class="footer-copy-github"
+          aria-label="View Developer Repository"
+          title="View Developer Repository"
+          href="https://github.com/WanderleeDev"
+          target="_blank"
+          rel="noopener noreferrer">
+          WanderleeDev
+        </a>
+        © 2023 All Rights Reserved.
+      </span>
+    </div>
+
+  </div>
+</footer>

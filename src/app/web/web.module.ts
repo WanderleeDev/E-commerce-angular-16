@@ -6,7 +6,6 @@ import { NgOptimizedImage } from '@angular/common';
 
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './pages/home/home.component'
-import { CardProductComponent } from './components/card-product/card-product.component';
 
 //  shared
 import { SharedModule } from '../shared/shared.module';
@@ -18,13 +17,12 @@ import { BtnToggleCollapseComponent } from './components/sidebar/components/btn-
 import { HttpProductsService } from './services/HttpProducts/http-products.service';
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { FooterComponent } from './components/footer/footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
-    CardProductComponent,
     HomeComponent,
     LayoutComponent,
     SidebarComponent,

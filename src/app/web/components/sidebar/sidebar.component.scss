@@ -16,7 +16,7 @@
   left: 0;
   border-radius: var(--side-radius, 1rem);
   padding: 1rem .63rem;
-  color: var(--side-radius);
+  color: var(--side-text-clr, #272727);
   background-color: var(--bg-color, #FCFCFD);
   z-index: 100;
 }

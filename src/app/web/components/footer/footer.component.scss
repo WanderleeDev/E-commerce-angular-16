@@ -1,0 +1,91 @@
+.footer {
+
+  &-content {
+    margin-inline: auto;
+    width: 100%;
+    padding: 1.5rem 0rem;
+    @media screen and (width >= 75rem) {
+      padding-top: 2rem;
+    }
+  }
+
+  &-info {
+    display: grid;
+    gap: 2rem;
+    @media screen and (width >= 55rem) {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-block {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      @media screen and (width >= 43.75rem) {
+        gap: 1.5rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &-title {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      //  font
+    }
+
+    &-list {
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    &-item {
+      margin-bottom: 1rem;
+    }
+
+    &-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-divider {
+    margin-block: 1.5rem;
+    border: solid .1rem currentColor;
+    @media screen and (width >= 43.75rem) {
+      margin-inline: auto;
+    }
+    @media screen and (width >= var(--media-lg, 75rem)) {
+      margin-block: 2rem;
+    }
+  }
+
+  &-copy {
+    @media screen and (width >= 43.75rem) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-content {
+      font-size: .8rem;
+      @media screen and (width >= 43.75rem) {
+        text-align: center;
+      }
+    }
+
+    &-github {
+      margin-right: .2rem;
+      display: initial;
+      text-decoration: underline;
+      transition: font-size .2s linear, color .2s linear, margin-inline .2s linear;
+      &:hover {
+        margin-inline: .2rem;
+        font-size: .9rem;
+        color: yellow;
+      }
+    }
+  }
+}

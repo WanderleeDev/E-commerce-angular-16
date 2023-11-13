@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
 
+interface Resource {
+  site: string;
+  href: string;
+}
+
+interface InterfaceEjemplo {
+  subTitle: string;
+  links: Resource[];
+}
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  dataFooter = [
+  color = '#DC0330';
+  dataFooter: InterfaceEjemplo[] = [
     {
       subTitle: 'Resources',
       links: [
