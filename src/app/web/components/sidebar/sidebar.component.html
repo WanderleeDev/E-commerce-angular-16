@@ -1,6 +1,6 @@
 <nav class="sidebar">
-  <app-logo />
-  <app-side-bar-links />
-  <app-small-details />
-  <app-btn-toggle-collapse />
+  <app-logo [hasPartiallyHidden]="isDisplayedSidebar"/>
+  <app-side-bar-links [hasPartiallyHidden]="isDisplayedSidebar"/>
+  <app-small-details [hasPartiallyHidden]="isDisplayedSidebar"/>
+  <app-btn-toggle-collapse [hasPartiallyHidden]="isDisplayedSidebar" />
 </nav>

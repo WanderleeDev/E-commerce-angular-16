@@ -3,5 +3,5 @@
   //  flex-flow: row wrap;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-  gap: calc(2rem + 1vw);
+  gap: calc(2rem + 2vw);
 }

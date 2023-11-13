@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Input } from '@angular/core';
 //  services
 import { NavToggleService } from 'src/app/web/services/navToggle/nav-toggle.service';
 
@@ -8,26 +7,12 @@ import { NavToggleService } from 'src/app/web/services/navToggle/nav-toggle.serv
   templateUrl: './btn-toggle-collapse.component.html',
   styleUrls: ['./btn-toggle-collapse.component.scss']
 })
-export class BtnToggleCollapseComponent implements OnInit, OnDestroy{
-  navbarSubscription = new Subscription();
-  appearNavbar = false;
+export class BtnToggleCollapseComponent {
+  @Input({required: true}) hasPartiallyHidden = true;
 
   constructor (
     private navToggleSvc: NavToggleService
   ) {}
-
-  ngOnInit(): void {
-    this.navbarSubscription = this.navToggleSvc.navObservable()
-      .subscribe({
-        next: (res) => this.appearNavbar = res,
-        error: (err) => console.error(err),
-        complete: () => console.log('complete')
-      })
-  }
-
-  ngOnDestroy(): void {
-    this.navbarSubscription.unsubscribe()
-  }
 
   public navbarToggle (): void {
     this.navToggleSvc.navbarToggle()

@@ -1,7 +1,7 @@
 <a class="wrapperLogo"
   [ngClass]="{
-    col: isNavbarView,
-    'min-width': isNavbarView
+    col: hasPartiallyHidden,
+    'min-width': hasPartiallyHidden
   }">
   <svg class="wrapperLogo-svg"
     width="48"
@@ -17,7 +17,7 @@
     </polygon>
   </svg>
   <h1 class="wrapperLogo-title"
-  [class.col-hidden]="isNavbarView">
+  [class.col-hidden]="hasPartiallyHidden">
     Angular
   </h1>
 </a>

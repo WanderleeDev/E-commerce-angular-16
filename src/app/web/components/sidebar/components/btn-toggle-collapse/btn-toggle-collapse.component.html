@@ -1,7 +1,7 @@
 <button class="expandBtm"
   [ngClass]="{
-    col: appearNavbar,
-    'min-width': appearNavbar
+    col: hasPartiallyHidden,
+    'min-width': hasPartiallyHidden
   }"
   (click)="navbarToggle()"
   aria-label="button sidebar toggle"
@@ -15,7 +15,7 @@
     <path d="M4 4l0 16"></path>
   </svg>
   <span class="expandBtm-hide"
-    [class.col-hidden]="appearNavbar">
+    [class.col-hidden]="hasPartiallyHidden">
     Collapse
   </span>
 </button>

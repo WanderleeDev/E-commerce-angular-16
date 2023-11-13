@@ -1,11 +1,11 @@
 <ul class="sideList"
-  [class.min-width]="isView">
+  [class.min-width]="hasPartiallyHidden">
   <li *ngFor="let link of links"
     class="sideList-item">
     <a
       [routerLink]="link"
       [routerLinkActive]="'active-route'"
-      [class.col]="isView"
+      [class.col]="hasPartiallyHidden"
       class="sideList-link">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -14,7 +14,7 @@
         <path d="M10 12h4v4h-4z"></path>
       </svg>
       <span class="sideList-text link hide"
-        [class.col-hidden]="isView"
+        [class.col-hidden]="hasPartiallyHidden"
         >{{link}}</span>
       <span class="sideList-tooltip tooltip">{{link}}</span>
     </a>
