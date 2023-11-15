@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { BarsIconComponent } from './bars-icon.component';
+
+describe('BarsIconComponent', () => {
+  let component: BarsIconComponent;
+  let fixture: ComponentFixture<BarsIconComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [BarsIconComponent]
+    });
+    fixture = TestBed.createComponent(BarsIconComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

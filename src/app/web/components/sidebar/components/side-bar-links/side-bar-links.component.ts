@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
 
+interface ILinks {
+  path: string;
+  title: string;
+}
 
 @Component({
   selector: 'app-side-bar-links',
@@ -9,12 +13,30 @@ import { Component, Input } from '@angular/core';
 export class SideBarLinksComponent {
   @Input({required: true}) hasPartiallyHidden = true;
 
-  links = [
-    'home',
-    'login',
-    'All products',
-    'explore',
-    'analytics',
-    'reports'
+  links:ILinks[] = [
+    {
+      path: 'home',
+      title: 'home'
+    },
+    {
+      path: 'login',
+      title: 'login'
+    },
+    {
+      path: 'all-products',
+      title: 'all products'
+    },
+    {
+      path: 'favorites',
+      title: 'favorites'
+    },
+    {
+      path: 'shopping-car',
+      title: 'shopping car'
+    },
+    {
+      path: 'extra',
+      title: 'extra'
+    }
   ];
 }

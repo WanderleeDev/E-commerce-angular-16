@@ -46,3 +46,11 @@
     }
   }
 }
+
+//  titles
+@mixin h2-styles {
+  position: relative;
+  font-size: var(--font-xl, calc(1rem + 2vw));
+  font-weight: 900;
+  letter-spacing: .1rem;
+}

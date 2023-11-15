@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { webRoutingModule } from './web-routing.module';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -18,8 +18,10 @@ import { HttpProductsService } from './services/HttpProducts/http-products.servi
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { AllProductsComponent } from './pages/all-products/all-products.component';
+import { ShoppingCarComponent } from './pages/shopping-car/shopping-car.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,10 @@ import { FooterComponent } from './components/footer/footer.component';
     BannerComponent,
     CategoriesComponent,
     FooterComponent,
+    NavbarComponent,
+    SearchBoxComponent,
+    AllProductsComponent,
+    ShoppingCarComponent
   ],
   providers:[
     HttpProductsService

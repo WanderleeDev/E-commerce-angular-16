@@ -3,7 +3,7 @@
   <li *ngFor="let link of links"
     class="sideList-item">
     <a
-      [routerLink]="link"
+      [routerLink]="link.path"
       [routerLinkActive]="'active-route'"
       [class.col]="hasPartiallyHidden"
       class="sideList-link">
@@ -15,8 +15,8 @@
       </svg>
       <span class="sideList-text link hide"
         [class.col-hidden]="hasPartiallyHidden"
-        >{{link}}</span>
-      <span class="sideList-tooltip tooltip">{{link}}</span>
+        >{{link.title}}</span>
+      <span class="sideList-tooltip tooltip">{{link.title}}</span>
     </a>
   </li>
 </ul>

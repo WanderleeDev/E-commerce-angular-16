@@ -8,9 +8,10 @@ import { HttpProductsService } from '../../services/HttpProducts/http-products.s
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: []
 })
 export class ProductComponent implements OnInit {
+  protected categoryName = '';
   protected products: IProducts[] = [];
 
   constructor (
@@ -22,8 +23,8 @@ export class ProductComponent implements OnInit {
       this.activatedRoute.paramMap.pipe(
         switchMap( params => {
           const category = params.get('category');
-
           if (category) {
+            this.categoryName = category;
             return this.httpProductsSvc.getProductsForCategory(category)
           } else {
             return of(null)

@@ -1,0 +1,40 @@
+<label
+    class="searchBox"
+    for="searchBox">
+    <input
+      [disabled]="isActiveListening"
+      class="searchBox-input"
+      type="search"
+      name=""
+      id="searchBox"
+      placeholder="search item ...">
+
+      <div class="searchBox-controls">
+        <button
+          (click)="listening()"
+          [title]="labelText"
+          [attr.aria-label]="labelText"
+          class="searchBox-btn"
+          type="button">
+            <app-bars-icon *ngIf="isActiveListening; else microphoneIcon" />
+        </button>
+
+        <button
+          [disabled]="isActiveListening"
+          title="search item"
+          aria-label="search item"
+          class="searchBox-btn"
+          type="button">
+          <svg
+            fill="currentColor"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"><path d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/>
+          </svg>
+        </button>
+      </div>
+  </label>
+
+  <ng-template #microphoneIcon>
+    <app-microphone-icon />
+  </ng-template>

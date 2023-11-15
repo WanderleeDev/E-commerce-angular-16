@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
+//  interface
 import { IProducts } from 'src/app/web/interfaces/IProducts.interface';
+//  services
 import { ImageErrorService } from 'src/app/web/services/ImageError/image-error.service';
+import { FavoriteProductsService } from 'src/app/web/services/favoriteProducts/favorite-products.service';
 
 @Component({
   selector: 'app-img-item',
@@ -11,10 +14,17 @@ export class ImgItemComponent {
   @Input({required: true}) product!: IProducts;
 
   constructor (
-    private imageErrorSvc: ImageErrorService
+    private imageErrorSvc: ImageErrorService,
+    private favoriteProductsSvc: FavoriteProductsService
   ) {}
 
   public errorImgHandler (e: Event): void {
-    this.imageErrorSvc.errorImageLoaded(e)
+    this.imageErrorSvc.errorImageLoaded(e);
+  }
+
+  public favoriteHandler (): void {
+    this.favoriteProductsSvc.addFavorite(this.product);
+    console.log(this.favoriteProductsSvc.getFavorites());
+
   }
 }
