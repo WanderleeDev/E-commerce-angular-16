@@ -1,0 +1,11 @@
+svg {
+  transition: transform .2s linear;
+
+  &:hover {
+    transform: scale(.8);
+  }
+
+  &:active {
+    transform: scale(1.2);
+  }
+}

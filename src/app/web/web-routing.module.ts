@@ -29,6 +29,27 @@ const routes : Routes = [
         }
       },
       {
+        path: 'all-products',
+        loadChildren: () =>
+          import('./pages/all-products/all-products.module').then(m => m.AllProductsModule),
+        data: {
+          preload: true
+        }
+      },
+      {
+        path: 'favorites',
+        loadChildren: () =>
+          import('./pages/favorites/favorites.module').then(m => m.FavoritesModule),
+        data: {
+          preload: true
+        }
+      },
+      {
+        path:'shopping-car',
+        loadChildren: () =>
+          import('./pages/shopping-car/shopping-car.module').then(m => m.ShoppingCarModule)
+      },
+      {
         path: 'product/:category',
         loadChildren: () =>
           import('./pages/product/product.module').then(m => m.ProductModule),

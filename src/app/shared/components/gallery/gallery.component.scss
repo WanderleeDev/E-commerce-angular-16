@@ -1,0 +1,11 @@
+.gallery {
+  padding-block: 2.5rem;
+  min-height: 100dvh;
+
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    gap: calc(2rem + 2vw);
+    padding-block: 4rem;
+  }
+}

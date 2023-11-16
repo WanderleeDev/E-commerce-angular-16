@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./heading.component.scss']
 })
 export class HeadingComponent {
-  @Input({required: true}) heading = 'heading';
+  @Input({required: true}) textHeading = 'heading';
 }
