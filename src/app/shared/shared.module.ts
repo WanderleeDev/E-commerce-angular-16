@@ -8,6 +8,7 @@ import { SlantedTagComponent } from './components/slanted-tag/slanted-tag.compon
 import { ImgItemComponent } from './components/card/components/img-item/img-item.component';
 import { DetailsComponent } from './components/card/components/details/details.component';
 import { BtnShopComponent } from './components/card/components/btn-shop/btn-shop.component';
+import { HeadingComponent } from './components/heading/heading.component';
 
 
 
@@ -18,7 +19,8 @@ import { BtnShopComponent } from './components/card/components/btn-shop/btn-shop
     SlantedTagComponent,
     ImgItemComponent,
     DetailsComponent,
-    BtnShopComponent
+    BtnShopComponent,
+    HeadingComponent
   ],
   imports: [
     CommonModule,
