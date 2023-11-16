@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-heading',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./heading.component.scss']
 })
 export class HeadingComponent {
-  // textHeading = 'heading';
+  @Input({required: true}) textHeading = 'heading';
 }

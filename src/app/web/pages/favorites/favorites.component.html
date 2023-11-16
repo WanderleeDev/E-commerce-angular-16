@@ -1,5 +1,5 @@
 <section class="whishList">
-  <!-- <app-heading /> -->
+  <app-heading textHeading="my whistlist" />
   <div *ngIf="whishList.length !== 0, else emptyList"
     class="whishList-content">
     <ul class="whishList-list">
@@ -37,7 +37,7 @@
 
 <ng-template #emptyList>
   <figure class="emptyList">
-    <!-- <app-empty-shopping-cart /> -->
+    <app-empty-shopping-cart />
     <figcaption class="emptyList-title">
       There are no products on your wish list
     </figcaption>
