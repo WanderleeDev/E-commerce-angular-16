@@ -29,7 +29,8 @@ import { HeadingComponent } from './components/heading/heading.component';
   exports: [
     CardComponent,
     BtnBaseComponent,
-    SlantedTagComponent
+    SlantedTagComponent,
+    HeadingComponent
   ]
 })
 export class SharedModule { }
