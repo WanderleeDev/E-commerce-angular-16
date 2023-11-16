@@ -1,0 +1,30 @@
+@use '../../../../assets/sass/mixins.scss' as *;
+
+.heading {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+&-wrapperTitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .5rem;
+}
+
+&-title {
+  flex: 1 0 ;
+  padding-block: 2rem;
+  @include h2-styles();
+}
+
+&-line {
+  flex: 1 0 ;
+  background: linear-gradient(90deg, currentCOlor 70%, transparent);
+  border-radius: .5rem;
+  display: inline-block;
+  height: 2px;
+}
