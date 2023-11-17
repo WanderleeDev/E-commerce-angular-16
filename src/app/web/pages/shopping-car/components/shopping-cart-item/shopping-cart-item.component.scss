@@ -1,0 +1,37 @@
+.cardShop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-figure {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+  }
+
+  &-link {
+    position: relative;
+    img {
+      border-radius: var(--radius-xs);
+      border: solid .15rem transparent;
+      transition: border .1s linear;
+    }
+
+    &:hover img {
+      border-color: #fff;
+    }
+  }
+
+  &-data {
+    display: grid;
+    gap: .5rem;
+  }
+
+  &-price {
+    margin-left: .5rem;
+  }
+
+  &-text--bold {
+    font-weight: 600;
+  }
+}

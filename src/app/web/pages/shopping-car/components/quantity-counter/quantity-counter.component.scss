@@ -1,0 +1,34 @@
+@use '../../../../../../assets/sass/mixins.scss' as *;
+
+.counter {
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+    align-items: center;
+
+  &-controls {
+    display: flex;
+    align-content: center;
+    gap: 1rem;
+  }
+
+  &-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: 1.5rem;
+    border-radius: var(--radius-xs, .5rem);
+    color: var(--negro, #000);
+    border: solid .1rem  var(--negro, #000);
+    background-color: var(--blanco #fff);
+    cursor: pointer;
+    @include hover-active-styles();
+  }
+
+  &-btn--add {
+
+  }
+
+  &-btn--rest {
+
+  }
+}

@@ -3,17 +3,19 @@
   /* Colores */
   --negro         : #393939;
   --blanco         : #ececec;
+  --negro-07 : rgba(39, 39, 39, 0.6);
 
   /* Tipografía */
-  --tipo-principal   : Helvetica, Arial, sans-serif;
+  --tipo-principal   : system-ui, Arial, sans-serif;
   --tipo-secundaria  : Verdana;
 }
 
 /* (Opcional) Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root{
-      --negro         : #ececec;
-      --blanco        : #393939;
+    --negro         : #ececec;
+    --blanco        : #393939;
+    --negro-07 : rgba(218, 217, 217, 0.7);
   }
 }
 

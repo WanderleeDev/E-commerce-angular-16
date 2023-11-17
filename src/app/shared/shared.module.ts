@@ -15,6 +15,9 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { PipesModule } from "../pipes/pipes.module";
 import { EmptyShoppingCartComponent } from './components/empty-shopping-cart/empty-shopping-cart.component';
 import { HeadingComponent } from './components/heading/heading.component';
+import { MonochromeBtnComponent } from './components/monochrome-btn/monochrome-btn.component';
+import { GradientBtnComponent } from './components/gradient-btn/gradient-btn.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -31,7 +34,9 @@ import { HeadingComponent } from './components/heading/heading.component';
         HeartIconComponent,
         GalleryComponent,
         EmptyShoppingCartComponent,
-        HeadingComponent
+        HeadingComponent,
+        MonochromeBtnComponent,
+        GradientBtnComponent
     ],
     exports: [
         CardComponent,
@@ -42,12 +47,15 @@ import { HeadingComponent } from './components/heading/heading.component';
         HeartIconComponent,
         GalleryComponent,
         EmptyShoppingCartComponent,
-        HeadingComponent
+        HeadingComponent,
+        MonochromeBtnComponent,
+        GradientBtnComponent
     ],
     imports: [
         CommonModule,
         NgOptimizedImage,
-        PipesModule
+        PipesModule,
+        RouterModule
     ]
 })
 export class SharedModule { }

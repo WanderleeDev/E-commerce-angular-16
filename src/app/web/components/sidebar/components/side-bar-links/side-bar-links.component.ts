@@ -19,8 +19,8 @@ export class SideBarLinksComponent {
       title: 'home'
     },
     {
-      path: 'login',
-      title: 'login'
+      path: 'auth',
+      title: 'auth'
     },
     {
       path: 'all-products',

@@ -1,0 +1,20 @@
+.totalPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+
+  &-subContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-data {
+    font-size: 1rem;
+  }
+
+  &-data--bold {
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+}

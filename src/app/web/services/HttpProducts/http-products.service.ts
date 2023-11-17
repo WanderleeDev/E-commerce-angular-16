@@ -4,7 +4,7 @@ import { Observable, catchError } from 'rxjs';
 //  interface
 import { IRequestProducts } from '../../interfaces/IProducts.interface';
 //  services
-import { CustomHttpErrorService } from 'src/app/shared/services/CustomHttpError/custom-http-error.service';
+import { CustomHttpErrorService } from 'src/app/services/CustomHttpError/custom-http-error.service';
 
 @Injectable({
   providedIn: 'root'

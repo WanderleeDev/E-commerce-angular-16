@@ -21,34 +21,33 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { AllProductsComponent } from './pages/all-products/all-products.component';
-import { ShoppingCarComponent } from './pages/shopping-car/shopping-car.component';
+
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    LayoutComponent,
-    SidebarComponent,
-    LogoComponent,
-    SideBarLinksComponent,
-    SmallDetailsComponent,
-    BtnToggleCollapseComponent,
-    BannerComponent,
-    CategoriesComponent,
-    FooterComponent,
-    NavbarComponent,
-    SearchBoxComponent,
-    AllProductsComponent,
-    ShoppingCarComponent
-  ],
-  providers:[
-    HttpProductsService
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    NgOptimizedImage,
-    webRoutingModule,
-    SharedModule
-  ]
+    declarations: [
+        HomeComponent,
+        LayoutComponent,
+        SidebarComponent,
+        LogoComponent,
+        SideBarLinksComponent,
+        SmallDetailsComponent,
+        BtnToggleCollapseComponent,
+        BannerComponent,
+        CategoriesComponent,
+        FooterComponent,
+        NavbarComponent,
+        SearchBoxComponent,
+        AllProductsComponent
+    ],
+    providers: [
+        HttpProductsService
+    ],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        NgOptimizedImage,
+        webRoutingModule,
+        SharedModule,
+    ]
 })
 export class WebModule { }

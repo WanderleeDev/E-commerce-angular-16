@@ -2,11 +2,12 @@
 
 .whishList {
   width: 100%;
-  height: calc(100dvh - 2.5rem);
+  height: 100dvh;
 
   &-content {
     display: grid;
-    gap: 6rem;
+    grid-template-rows: 1fr auto;
+    gap: 2rem;
     background-color: #ffffff;
     padding: 1.5rem;
     border-radius: 0.5rem;
@@ -48,51 +49,6 @@
     font-size: var(--font-base);
     font-weight: 600;
     color: black;
-  }
-
-  &-btnRemove {
-    font-size: var(--font-xs);
-    padding-inline: 1rem;
-    color: black;
-    height: 3rem;
-    border-radius: var(--radius-xs, .5rem);
-    border: solid 1px rgb(173, 173, 173);
-    display: grid;
-    align-items: center;
-    font-size: 0.875rem;
-    transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out ;
-    cursor: pointer;
-    @include hover-active-styles();
-    @media screen and (width >= 500px) {
-      gap: 1rem;
-      grid-template-columns: repeat(2, auto);
-    }
-
-    &:hover {
-      background-color: #F0F0F0;
-      border: none;
-    }
-
-    span {
-      display: none;
-      @media screen and (width >= 500px) {
-        display: block;
-      }
-    }
-
-  }
-
-  &-btnAll {
-    text-transform: uppercase;
-    height: 3rem;
-    color: white;
-    font-weight: 600;
-    justify-self: flex-start;
-    border: none;
-    background: var(
-      --gradient,
-      linear-gradient(45deg,  #F51DC1, #2DFAFA)
-    );
   }
 }
 

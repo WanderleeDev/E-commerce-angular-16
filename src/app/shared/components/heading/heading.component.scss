@@ -6,6 +6,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  user-select: none;
 
   &-wrapperTitle {
     display: flex;
@@ -16,7 +17,7 @@
 
   &-title {
     flex: 1 0 ;
-    padding-block: 2rem;
+    padding-block: 2.8rem;
     @include h2-styles();
   }
 

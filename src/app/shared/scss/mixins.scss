@@ -1,0 +1,57 @@
+// bottom styles
+@mixin hover-active-styles {
+  transition: transform .1s linear;
+  &:hover {
+    transform: scale(.95);
+  }
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+//  flex
+@mixin flex($direction, $justify, $align, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items:  $align;
+  gap: $gap
+}
+
+// customScrollbar
+@mixin customScrollbar {
+
+  &::-webkit-scrollbar {
+    width: .7rem;
+    height: .5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: linear-gradient(
+      90deg,
+      transparent 40%,
+      black 40%,
+      transparent 60%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.541);
+    border-radius: var(--radius-base, 1rem);
+    border: .15rem solid #000000;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: #ebc51d;
+    }
+  }
+}
+
+//  titles
+@mixin h2-styles {
+  text-transform: capitalize;
+  position: relative;
+  font-size: var(--font-xl, calc(1rem + 2vw));
+  font-weight: 900;
+  letter-spacing: .1rem;
+}

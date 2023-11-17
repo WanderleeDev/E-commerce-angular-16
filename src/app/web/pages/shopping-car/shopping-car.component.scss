@@ -1,0 +1,16 @@
+.shoppingCar {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &-list {
+    display: grid;
+  }
+
+  // &-item {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  // }
+}

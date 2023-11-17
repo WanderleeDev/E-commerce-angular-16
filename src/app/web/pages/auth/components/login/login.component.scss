@@ -1,0 +1,94 @@
+.login {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+
+  &-form {
+    display: flex;
+    width: min(30rem, 100%);
+    gap: 2rem;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 30rem;
+    justify-self: center;
+    // background-color: var(--negro);
+  }
+
+  &-description {
+    font-size: var(--font-sm);
+    text-align: center;
+  }
+
+  &-body {
+
+  }
+
+  &-label {
+    position: relative;
+    display: grid;
+    gap: .5rem;
+    margin-block: 2rem;
+  }
+
+  &-nameInput {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  &-input {
+    width: 100%;
+    padding: 1rem;
+    border: solid .1rem rgb(181, 181, 248);
+    border-radius: var(--radius-xs, .5rem);
+  }
+
+  &-messages {
+    display: grid;
+    position: absolute;
+    bottom: -1.2rem;
+    width: 100%;
+    height: 1rem;
+    color: rgb(235, 235, 235);
+    user-select: none;
+  }
+
+  &-msn {
+    grid-area: 1/1/1/1;
+    display: none;
+    font-weight: 600;
+    display: inline-block;
+    width: fit-content;
+    padding-inline: 1rem;
+    border-radius: .3rem;
+    letter-spacing: .1rem;
+    font-size: var(--font-sm);
+  }
+
+  &-msn--successful {
+    background-color: rgba(45, 170, 20, 0.712);
+  }
+
+  &-msn--error {
+    background-color: rgb(212, 30, 30);
+  }
+
+  &-controls {
+    padding-top: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-extra {
+    display: grid;
+    gap: .5rem;
+  }
+
+  &-btn {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

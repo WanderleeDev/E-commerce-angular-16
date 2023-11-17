@@ -13,6 +13,7 @@
   }
 
   &-link {
+    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1.9rem;
@@ -24,6 +25,11 @@
     &:hover {
       background-color: var(--item-hover, #F0F0F0);
     }
+    &:hover .sideList-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(130%);
+      filter: blur(0);
+    }
   }
 
   &-text {
@@ -32,8 +38,29 @@
   }
 
   &-tooltip {
-    display: none;
-    color: aqua;
+
+    top: 50%;
+    right: 0;
+    transform: translateY(-0%) translateX(130%);
+    text-transform: capitalize;
+    text-align: left;
+    font-size: .8rem;
+    position: absolute;
+    display: block;
+    width: max-content;
+    color: var(--blanco, #fff);
+    font-weight: 600;
+    letter-spacing: .1rem;
+    background: var(
+      --negro-07,
+      linear-gradient(45deg,  #F51DC1, #2DFAFA)
+    );
+    padding: .3rem .5rem;
+    border-radius: var(--radius-min, .3rem);
+    transition: opacity .2s linear, transform .2s linear, filter .3s linear;
+    filter: blur(.1rem);
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

@@ -1,0 +1,61 @@
+<section class="login">
+  <app-heading textHeading="Login"/>
+
+  <form class="login-form"
+    (ngSubmit)="login()"
+    [formGroup]="loginForm"
+    #form="ngForm"
+    autocomplete="off">
+
+    <p class="login-description">
+      Enter your username and password below to login to your account
+    </p>
+
+    <div class="login-body">
+      <label *ngFor="let input of inputs"
+        class="login-label"
+        [for]="input.name">
+        <span class="login-nameInput">
+          {{input.name}}
+        </span>
+        <input
+          [name]="input.name"
+          [formControlName]="input.name"
+          class="login-input"
+          [id]="input.name"
+          placeholder="Username"
+          [type]="input.type"
+        />
+        <div
+          class="login-messages">
+          <span class="login-msn login-msn--successful">Format valid</span>
+          <span class="login-msn login-msn--error">Field is required</span>
+        </div>
+      </label>
+
+      <div class="login-controls">
+        <app-gradient-btn
+          [isDisable]="!loginForm.valid"
+          dataBtn="Login"
+          type="submit"/>
+
+        <div class="login-extra">
+          <a class="login-btn"
+          rel="noopener noreferrer"
+          routerLink="../signUp">
+            Register
+          </a>
+
+          <a class="login-btn"
+            rel="noopener noreferrer"
+            routerLink="../recoveryAccount">
+            Forgot your password
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</section>
+
+
