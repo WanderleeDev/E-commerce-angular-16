@@ -31,7 +31,7 @@ const routes : Routes = [
       {
         path: 'all-products',
         loadChildren: () =>
-          import('./pages/all-products/all-products.module').then(m => m.AllProductsModule),
+          import('./pages/product/product.module').then(m => m.ProductModule),
         data: {
           preload: true
         }

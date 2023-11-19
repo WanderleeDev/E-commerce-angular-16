@@ -7,7 +7,7 @@ export interface IProducts {
   rating:             number;
   stock:              number;
   brand:              string;
-  category:           string;
+  category:           ProductCategory
   thumbnail:          string;
   images:             string[];
 }
@@ -18,3 +18,25 @@ export interface IRequestProducts {
   skip:               number;
   total:              number;
 }
+
+export type ProductCategory =
+  | "smartphones"
+  | "laptops"
+  | "fragrances"
+  | "skincare"
+  | "groceries"
+  | "home-decoration"
+  | "furniture"
+  | "tops"
+  | "womens-dresses"
+  | "womens-shoes"
+  | "mens-shirts"
+  | "mens-shoes"
+  | "mens-watches"
+  | "womens-watches"
+  | "womens-bags"
+  | "womens-jewellery"
+  | "sunglasses"
+  | "automotive"
+  | "motorcycle"
+  | "lighting";

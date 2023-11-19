@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 //  interface
-import { IRequestProducts } from '../../interfaces/IProducts.interface';
+import { IRequestProducts, ProductCategory } from '../../interfaces/IProducts.interface';
 //  services
 import { CustomHttpErrorService } from 'src/app/services/CustomHttpError/custom-http-error.service';
 

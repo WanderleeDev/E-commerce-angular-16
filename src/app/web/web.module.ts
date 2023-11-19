@@ -20,7 +20,6 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
-import { AllProductsComponent } from './pages/all-products/all-products.component';
 
 
 @NgModule({
@@ -37,7 +36,6 @@ import { AllProductsComponent } from './pages/all-products/all-products.componen
         FooterComponent,
         NavbarComponent,
         SearchBoxComponent,
-        AllProductsComponent
     ],
     providers: [
         HttpProductsService
