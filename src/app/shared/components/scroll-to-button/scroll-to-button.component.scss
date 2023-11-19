@@ -18,7 +18,7 @@
   right: 2rem;
   animation: appearBtn linear both;
   animation-timeline:  scroll();
-  animation-range: 200px 300px;
+  animation-range: 150px 450px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   @include hover-active-styles();
 
@@ -52,7 +52,7 @@
     opacity: 1;
   }
   from {
-    filter: blur(.1rem);
+    filter: blur(.2rem);
     pointer-events: none;
     opacity: 0;
   }
