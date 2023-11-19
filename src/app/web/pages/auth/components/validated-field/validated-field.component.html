@@ -1,0 +1,20 @@
+<label class="field"
+  [for]="dataField.name">
+
+<span class="field-nameInput">
+  {{dataField.name}}
+</span>
+
+<input [attr.name]="dataField.name"
+  [formControlName]="dataField.name"
+  class="field-input"
+  [id]="dataField.name"
+  placeholder="Username"
+  [attr.type]="dataField.type"/>
+
+<div class="field-messages">
+  <span class="field-msn field-msn--successful">Format valid</span>
+  <span class="field-msn field-msn--error">Field is required</span>
+</div>
+
+</label>

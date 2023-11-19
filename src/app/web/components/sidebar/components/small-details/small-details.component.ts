@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-small-details',
@@ -6,5 +6,4 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./small-details.component.scss']
 })
 export class SmallDetailsComponent {
-  @Input({required: true}) hasPartiallyHidden = true;
 }

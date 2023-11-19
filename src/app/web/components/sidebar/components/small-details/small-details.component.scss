@@ -2,22 +2,29 @@
 
 .details {
   @include flex(column,center, center, 1rem);
+  position: relative;
   border: .1rem solid var(--sidebar-gray-background, #dce1eb);
   padding: .5rem;
+  min-height: 6.25rem;
   margin-block: 4rem;
   text-align: center;
   border-radius: var(--side-radius, 1rem);
   color: var(--side-text-clr, #272727);
 
   &-img {
-
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
   }
 
   &-title {
-
+    font-size: .8rem;
   }
 
   &-btn {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-10%);
     font-size: .8rem;
     min-height: 2.625rem;
     padding: .5rem .75rem;

@@ -1,10 +1,8 @@
-<nav class="sidebar">
-  <app-logo
-    title="Angular"
-    [hasPartiallyHidden]="isDisplayedSidebar"/>
-  <app-side-bar-links
-    [hasPartiallyHidden]="isDisplayedSidebar"/>
-  <app-small-details
-    [hasPartiallyHidden]="isDisplayedSidebar"/>
+<nav class="sidebar"
+  [ngClass]="{'w-sidebar': !isDisplayedSidebar}">
+  <app-logo title="Angular"
+    [hasPartiallyHidden]="isDisplayedSidebar" />
+  <app-side-bar-links [hasPartiallyHidden]="isDisplayedSidebar" />
+  <app-small-details *ngIf="!isDisplayedSidebar" />
   <app-btn-toggle-collapse [hasPartiallyHidden]="isDisplayedSidebar" />
 </nav>

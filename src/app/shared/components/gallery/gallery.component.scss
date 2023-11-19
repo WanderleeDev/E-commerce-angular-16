@@ -5,7 +5,7 @@
   &-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-    gap: calc(2rem + 2vw);
+    gap: calc(2rem + 4vw) calc(2rem + 2vw);
     padding-block: 4rem;
   }
 }

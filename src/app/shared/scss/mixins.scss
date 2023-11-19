@@ -1,3 +1,5 @@
+@use 'animations.scss' as *;
+
 // bottom styles
 @mixin hover-active-styles {
   transition: transform .1s linear;
@@ -54,4 +56,11 @@
   font-size: var(--font-xl, calc(1rem + 2vw));
   font-weight: 900;
   letter-spacing: .1rem;
+}
+
+//  animations
+@mixin revealCard {
+  animation: reveal ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 30% cover 50%;
 }

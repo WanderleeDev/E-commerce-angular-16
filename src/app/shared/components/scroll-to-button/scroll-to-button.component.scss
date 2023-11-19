@@ -1,0 +1,59 @@
+@use '../../scss/mixins.scss' as *;
+
+.btnScroll {
+  display: grid;
+  place-content: center;
+  position: fixed;
+  background: var(
+    --gradient,
+    linear-gradient(45deg,  #F51DC1, #2DFAFA)
+  );
+  cursor: pointer;
+  bottom: 1rem;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  z-index: 20;
+  color: white;
+  right: 2rem;
+  animation: appearBtn linear both;
+  animation-timeline:  scroll();
+  animation-range: 200px 300px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  @include hover-active-styles();
+
+  &:hover svg {
+    transform: rotate(-90deg) scale(1);
+  }
+
+  svg {
+    transition: transform .2s ease-in-out;
+    transform: rotate(-90deg) scale(.8);
+    animation: moveY 2s linear infinite;
+  }
+}
+
+@keyframes moveY {
+  0%, 100% {
+    transform: translateY(0rem) rotate(-90deg) scale(.8);
+  }
+  33% {
+    transform: translateY(-.1rem)  rotate(-90deg) scale(.8);
+  }
+  66% {
+    transform: translateY(.1rem) rotate(-90deg) scale(.8);
+  }
+}
+
+@keyframes appearBtn {
+  to {
+    filter: blur(0);
+    pointer-events: all;
+    opacity: 1;
+  }
+  from {
+    filter: blur(.1rem);
+    pointer-events: none;
+    opacity: 0;
+  }
+}

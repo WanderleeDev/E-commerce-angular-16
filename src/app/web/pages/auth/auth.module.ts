@@ -8,6 +8,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './components/login/login.component';
 import { RecoveryAccountComponent } from './components/recovery-account/recovery-account.component';
+import { ValidatedFieldComponent } from './components/validated-field/validated-field.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { RecoveryAccountComponent } from './components/recovery-account/recovery
     SignUpComponent,
     LoginComponent,
     RecoveryAccountComponent,
+    ValidatedFieldComponent,
   ],
   imports: [
     CommonModule,

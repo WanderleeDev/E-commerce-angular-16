@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IFieldForm } from '../../interfaces/IFieldForm.interface';
 
-interface ILabelForm {
-  name: string;
-  type: string;
-}
 
 @Component({
   selector: 'app-login',
@@ -12,7 +9,7 @@ interface ILabelForm {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  readonly inputs: ILabelForm[] = [
+  readonly inputs: IFieldForm[] = [
     {
       name: 'username',
       type: 'text'
@@ -35,6 +32,8 @@ export class LoginComponent {
   }
 
   public login(): void {
+    console.log(this.loginForm.value);
+
     this.loginForm.reset();
 
     for (const key of Object.keys(this.loginForm.controls)) {

@@ -18,6 +18,7 @@ import { HeadingComponent } from './components/heading/heading.component';
 import { MonochromeBtnComponent } from './components/monochrome-btn/monochrome-btn.component';
 import { GradientBtnComponent } from './components/gradient-btn/gradient-btn.component';
 import { RouterModule } from '@angular/router';
+import { ScrollToButtonComponent } from './components/scroll-to-button/scroll-to-button.component';
 
 
 
@@ -36,7 +37,8 @@ import { RouterModule } from '@angular/router';
         EmptyShoppingCartComponent,
         HeadingComponent,
         MonochromeBtnComponent,
-        GradientBtnComponent
+        GradientBtnComponent,
+        ScrollToButtonComponent
     ],
     exports: [
         CardComponent,
@@ -49,13 +51,14 @@ import { RouterModule } from '@angular/router';
         EmptyShoppingCartComponent,
         HeadingComponent,
         MonochromeBtnComponent,
-        GradientBtnComponent
+        GradientBtnComponent,
+        ScrollToButtonComponent
     ],
     imports: [
         CommonModule,
         NgOptimizedImage,
         PipesModule,
-        RouterModule
+        RouterModule,
     ]
 })
 export class SharedModule { }
