@@ -56,6 +56,14 @@ const routes : Routes = [
         data: {
           preload: true
         }
+      },
+      {
+        path: 'productView/:product',
+        loadChildren: () =>
+          import('./pages/product-view/product-view.module').then(m => m.ProductViewModule),
+        data: {
+          preload: true
+        }
       }
     ]
   },

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 //  interface
-import { IRequestProducts, ProductCategory } from '../../interfaces/IProducts.interface';
+import { IRequestProducts, IProducts } from '../../interfaces/IProducts.interface';
 //  services
 import { CustomHttpErrorService } from 'src/app/services/CustomHttpError/custom-http-error.service';
 
@@ -22,8 +22,7 @@ export class HttpProductsService {
     return this.http.get<IRequestProducts>(this.BASEURL).pipe(
       catchError((error: HttpErrorResponse) => {
         return this.customError.handleCustomHttpError(error)
-      })
-    )
+      }))
   }
 
   //  obtiene la lista de categorías
@@ -31,17 +30,22 @@ export class HttpProductsService {
     return this.http.get<string[]>(`${this.BASEURL}/categories`).pipe(
       catchError((error: HttpErrorResponse) => {
         return this.customError.handleCustomHttpError(error)
-      })
-    )
+      }))
   }
 
   //  obtiene la lista de productos por la categoría especificada
   public getProductsForCategory (category: string):Observable<IRequestProducts> {
-    return this.http.get<IRequestProducts>(`${this.BASEURL}/category/${category}`)
-      .pipe(
-        catchError((error: HttpErrorResponse) => {
-          return this.customError.handleCustomHttpError(error);
-        })
-      )
+    return this.http.get<IRequestProducts>(`${this.BASEURL}/category/${category}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return this.customError.handleCustomHttpError(error);
+      }))
+  }
+
+  //  obtiene un producto por id
+  public getSingleProduct (id: string) {
+    return this.http.get<IProducts>(`${this.BASEURL}/${id}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return this.customError.handleCustomHttpError(error);
+      }))
   }
 }

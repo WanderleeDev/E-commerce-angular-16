@@ -2,7 +2,7 @@
   <a class="productCard-link"
     aria-label="More Product Details"
     title="More Product Details"
-    routerLink="/home">
+    [routerLink]="['/productView', product.id]">
 
     <img class="productCard-img"
       *ngIf="product.thumbnail; else errorImage"
