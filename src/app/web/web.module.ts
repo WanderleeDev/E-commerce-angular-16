@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { webRoutingModule } from './web-routing.module';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -42,7 +41,6 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
     ],
     imports: [
         CommonModule,
-        HttpClientModule,
         NgOptimizedImage,
         webRoutingModule,
         SharedModule,

@@ -1,0 +1,11 @@
+.recommended {
+  margin-block: 6rem;
+  
+  &-title {
+    display: inline-block;
+    font-weight: 600;
+    font-size: var(--font-md);
+    text-transform: uppercase;
+    padding-bottom: 2rem;
+  }
+}

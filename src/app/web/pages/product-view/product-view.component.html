@@ -1,6 +1,9 @@
-<section>
+<section class="product">
   <app-heading [textHeading]="productName"/>
-  <figure>
-    <img [src]="singleProduct?.thumbnail" [alt]="singleProduct?.title">
-  </figure>
+
+  <app-data-product [data]="singleProduct"/>
+
+  <app-recommended-products [category]="singleProduct.category" />
+
+  <app-comments-box />
 </section>

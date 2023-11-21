@@ -1,0 +1,21 @@
+<div class="boxComment">
+
+  <div *ngFor="let comment of listComentareis"
+    class="boxComment-comment">
+    <span class="boxComment-img">
+      <img fill
+        alt="User avatar"
+        ngSrc="https://api.minimalavatars.com/avatar/random/png"/>
+    </span>
+
+    <div class="boxComment-user">
+      <div class="boxComment-name">
+        {{comment.user.username}}
+      </div>
+      <p class="boxComment-text">
+        {{comment.body}}
+      </p>
+
+  </div>
+
+</div>

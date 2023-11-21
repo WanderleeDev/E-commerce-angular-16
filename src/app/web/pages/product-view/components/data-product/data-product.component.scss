@@ -1,0 +1,95 @@
+.product {
+  display: grid;
+  gap: 2rem;
+  @media screen and (width >= 60rem) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    grid-template-areas:
+    "img text text"
+    "img table table"
+    "Btn price rating";
+  }
+  @media screen and (width >= 80rem) {
+    grid-template-columns:  repeat(3, 1fr);
+  }
+}
+
+
+.singleProduct {
+  //  width: min(35rem, 100%);
+  // height: calc(20rem + 2vw);
+  margin-inline: auto;
+  @media screen and (width >= 60rem) {
+    grid-area: img;
+  }
+
+  &-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-img {
+    width: min(20rem, 100%);
+    max-width: 20rem;
+    object-fit: fill;
+    aspect-ratio: 1/1;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    @media screen and (width >= 60rem) {
+      grid-area: img;
+    }
+  }
+
+  &-description {
+    font-size: var(--font-md);
+    line-height: 1.7;
+    @media screen and (width >= 60rem) {
+      grid-area: text;
+    }
+  }
+
+  &-rating {
+    @media screen and (width >= 60rem) {
+      justify-self: flex-end;
+      grid-area: rating;
+    }
+  }
+
+  &-data {
+    width: 100%;
+    @media screen and (width >= 60rem) {
+      grid-area: table;
+    }
+  }
+
+  &-th,
+  &-td {
+    flex: 1;
+    font-size: var(--font-base);
+    text-align: left;
+    border: solid .1rem ;
+    padding: calc(.5rem + 1vw);
+  }
+
+  &-th {
+    text-transform: capitalize;
+  }
+
+  &-tag {
+    border: solid 1px ;
+    font-weight: 600;
+    border-radius: var(--radius-xs);
+    padding: .2rem .7rem;
+  }
+
+  &-price {
+    @media screen and (width >= 60rem) {
+      grid-area: price;
+    }
+  }
+
+  &-btnSHop {
+    @media screen and (width >= 60rem) {
+      grid-area: btn;
+    }
+  }
+}

@@ -5,18 +5,13 @@ import { switchMap } from 'rxjs/operators';
 import { HttpProductsService } from '../../services/HttpProducts/http-products.service';
 import { IProducts } from '../../interfaces/IProducts.interface';
 
-enum pa {
-  'all product',
-  string
-}
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
+  selector: 'app-category',
+  templateUrl: './category.component.html',
   styleUrls: []
 })
-export class ProductComponent implements OnInit, OnDestroy {
-  dar: pa.string = pa.string
-  protected categoryName = 'loading..';
+export class CategoryComponent implements OnInit, OnDestroy {
+  protected categoryName = 'loading...';
   protected products: IProducts[] = [];
   private productSub: Subscription = new Subscription();
 
@@ -67,7 +62,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     //  procede a suscribirse al observable retornado
     ).subscribe({
       next: (res) => {
-        res && (this.products = res?.products)
+        res && (this.products = res)
       },
       error: (err) => console.log(err),
       complete: () => console.log('product obtain')

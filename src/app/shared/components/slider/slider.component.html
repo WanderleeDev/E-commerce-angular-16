@@ -1,0 +1,29 @@
+<ng-container *ngSwitch="effect">
+  
+</ng-container>
+
+<swiper-container [attr.slides-per-view]="imgXSlide"
+  autoplay
+  speed="500"
+  loop="true"
+  navigation="true"
+  grab-cursor="true"
+  [effect]="effect"
+  slides-per-view="auto"
+  centered-slides="true"
+  flip-effect-slide-shadow="true"
+  coverflow-effect-rotate="0"
+  coverflow-effect-stretch="0"
+  coverflow-effect-depth="200"
+  coverflow-effect-modifier="1"
+  coverflow-effect-slide-shadows="false">
+
+  <ng-container *ngFor="let img of listImages">
+    <swiper-slide>
+      <figure class="slide">
+        <img class="slide-img" [src]="img" alt="" loading="lazy">
+      </figure>
+    </swiper-slide>
+  </ng-container>
+
+</swiper-container>

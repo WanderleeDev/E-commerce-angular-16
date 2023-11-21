@@ -32,12 +32,14 @@
     border-radius: var(--side-radius, 1rem);
     border: 1.5px solid var(--sidebar-gray-background, #dce1eb);
     font-weight: 800;
-    background-color: #F4F5FC;
+    background: #F4F5FC;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
     &:hover {
-      background-color: var(--side-text-clr, #272727);
-      color: var(--bg-color, #FCFCFD);
+      background: var(
+        --gradient,
+        linear-gradient(45deg, #F51DC1, #2DFAFA));
+      color: #fff;
     }
   }
 }

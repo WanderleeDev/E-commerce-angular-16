@@ -16,6 +16,7 @@
   border-top-left-radius: var(--radius-base, .5rem);
   border-top-right-radius: var(--radius-base, .5rem);
   overflow: hidden;
+  opacity: 0;
   @include revealCard();
 }
 

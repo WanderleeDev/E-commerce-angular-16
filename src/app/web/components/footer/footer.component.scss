@@ -4,8 +4,8 @@
     margin-inline: auto;
     width: 100%;
     padding: 1.5rem 0rem;
-    @media screen and (width >= 75rem) {
-      padding-top: 2rem;
+    @media screen and (width >= 50rem) {
+      padding-top: 10rem;
     }
   }
 
@@ -20,8 +20,10 @@
 
     &-block {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
+      @media screen and (width >= 20rem) {
+        grid-template-columns: repeat(2, 1fr);
+      }
       @media screen and (width >= 43.75rem) {
         gap: 1.5rem;
         grid-template-columns: repeat(3, 1fr);

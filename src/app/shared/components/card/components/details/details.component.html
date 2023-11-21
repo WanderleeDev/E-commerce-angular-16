@@ -1,45 +1,17 @@
 <section class="productData">
 
   <header class="productData-header">
-
     <h2 class="productData-title">
       {{product.title }}
     </h2>
 
-    <div class="productData-rating">
-      <span>{{product.rating}}</span>
-      <svg *ngFor="let num of ['','','']"
-        title="Product Qualification: {{product.rating}} out of 5 stars"
-        width="12" height="12" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
-      </svg>
-    </div>
-
+    <app-rating [rating]="product.rating"/>
   </header>
 
-  <div class="priceInfo">
-
-    <span class="priceInfo-price"
-      title="current price: ${{product.price}}"
-      attr.aria-label="current price: ${{product.price}}">
-      {{product.price | currency}}
-    </span>
-
-    <span class="priceInfo-discount"
-      title="Discount percentage applied: {{product.discountPercentage}} %"
-      attr.aria-label="Discount percentage applied: {{product.discountPercentage}} %">
-      💸 {{product.discountPercentage }} %
-    </span>
-
-    <span class="priceInfo-priceBefore"
-      title="Previous price without discount was ${{previousPrice}}"
-      attr.aria-label="Previous price without discount was ${{previousPrice}}">
-      🔄
-      <del class="priceInfo-icon">
-      $ {{ product.price | calculateOriginalPrice: product.discountPercentage }}
-      </del>
-    </span>
-
-  </div>
+  <app-price-panel [dataPanel]="{
+    price: product.price,
+    discount: product.discountPercentage
+  }" />
 
   <app-btn-shop />
 

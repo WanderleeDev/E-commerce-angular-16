@@ -31,7 +31,7 @@ const routes : Routes = [
       {
         path: 'all-products',
         loadChildren: () =>
-          import('./pages/product/product.module').then(m => m.ProductModule),
+          import('./pages/category/category.module').then(m => m.CategoryModule),
         data: {
           preload: true
         }
@@ -52,7 +52,7 @@ const routes : Routes = [
       {
         path: 'product/:category',
         loadChildren: () =>
-          import('./pages/product/product.module').then(m => m.ProductModule),
+          import('./pages/category/category.module').then(m => m.CategoryModule),
         data: {
           preload: true
         }

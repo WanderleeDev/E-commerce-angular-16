@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common';
 
 import { CardComponent } from './components/card/card.component';
-import { BtnBaseComponent } from './components/btn-base/btn-base.component';
 import { SlantedTagComponent } from './components/slanted-tag/slanted-tag.component';
 import { ImgItemComponent } from './components/card/components/img-item/img-item.component';
 import { DetailsComponent } from './components/card/components/details/details.component';
@@ -19,13 +18,15 @@ import { MonochromeBtnComponent } from './components/monochrome-btn/monochrome-b
 import { GradientBtnComponent } from './components/gradient-btn/gradient-btn.component';
 import { RouterModule } from '@angular/router';
 import { ScrollToButtonComponent } from './components/scroll-to-button/scroll-to-button.component';
+import { PricePanelComponent } from './components/card/components/price-panel/price-panel.component';
+import { RatingComponent } from './components/card/components/rating/rating.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 
 
 @NgModule({
     declarations: [
         CardComponent,
-        BtnBaseComponent,
         SlantedTagComponent,
         ImgItemComponent,
         DetailsComponent,
@@ -38,11 +39,13 @@ import { ScrollToButtonComponent } from './components/scroll-to-button/scroll-to
         HeadingComponent,
         MonochromeBtnComponent,
         GradientBtnComponent,
-        ScrollToButtonComponent
+        ScrollToButtonComponent,
+        PricePanelComponent,
+        RatingComponent,
+        SliderComponent,
     ],
     exports: [
         CardComponent,
-        BtnBaseComponent,
         SlantedTagComponent,
         BarsIconComponent,
         MicrophoneIconComponent,
@@ -52,13 +55,20 @@ import { ScrollToButtonComponent } from './components/scroll-to-button/scroll-to
         HeadingComponent,
         MonochromeBtnComponent,
         GradientBtnComponent,
-        ScrollToButtonComponent
+        ScrollToButtonComponent,
+        PricePanelComponent,
+        RatingComponent,
+        SliderComponent,
+        BtnShopComponent
     ],
     imports: [
         CommonModule,
         NgOptimizedImage,
         PipesModule,
         RouterModule,
+    ],
+    schemas: [
+      CUSTOM_ELEMENTS_SCHEMA
     ]
 })
 export class SharedModule { }

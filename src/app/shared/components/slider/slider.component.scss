@@ -1,0 +1,12 @@
+.slide {
+  // cursor: col-resize;
+  border: solid .2rem transparent;
+
+  &-img {
+    background-color: black;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: fill;
+  }
+}
+

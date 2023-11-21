@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IProducts } from 'src/app/web/interfaces/IProducts.interface';
 
 
@@ -7,13 +7,6 @@ import { IProducts } from 'src/app/web/interfaces/IProducts.interface';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent {
   @Input({required: true}) product!: IProducts;
-  previousPrice!: number;
-
-  ngOnInit(): void {
-    this.previousPrice = parseFloat(
-      (this.product.price / (1 - (this.product.discountPercentage / 100))).toFixed(2)
-    );
-  }
 }

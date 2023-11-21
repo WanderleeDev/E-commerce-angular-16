@@ -1,0 +1,45 @@
+.pricePanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: .7rem;
+  padding-inline: 1.5rem;
+
+  &-price {
+    grid-area: 1/1/3/1;
+    font-size: var(--font-base);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.718);
+    color: white;
+    padding: .3rem .5rem;
+    border-radius: var(--radius-min, .5rem);
+    &::first-letter {
+      margin-right: .3rem;
+      font-weight: 600;
+      color: #ebc51d;
+      font-size: var(--font-md);
+    }
+  }
+
+  &-info {
+    display: grid;
+    gap: .5rem;
+  }
+
+  &-priceBefore,
+  &-discount {
+    width: max-content;
+    justify-self: flex-end;
+    &::first-letter {
+      margin-right: .2rem;
+    }
+  }
+
+  &-icon {
+    position: relative;
+    display: inline-block;
+  }
+}

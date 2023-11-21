@@ -1,0 +1,26 @@
+<div class="pricePanel">
+
+  <span class="pricePanel-price"
+    title="current price: ${{dataPanel.price}}"
+    attr.aria-label="current price: ${{dataPanel.price}}">
+    {{dataPanel.price | currency}}
+  </span>
+  <div class="pricePanel-info">
+    <span class="pricePanel-discount"
+      title="Discount percentage applied: {{dataPanel.discount}} %"
+      attr.aria-label="Discount percentage applied: {{dataPanel.discount}} %">
+      💸 {{dataPanel.discount }} %
+    </span>
+
+    <span class="pricePanel-priceBefore"
+      title="Previous price without discount was ${{previousPrice}}"
+      attr.aria-label="Previous price without discount was ${{previousPrice}}">
+      🔄
+      <del class="pricePanel-icon">
+      $ {{ dataPanel.price | calculateOriginalPrice: dataPanel.discount }}
+      </del>
+    </span>
+  </div>
+
+
+</div>

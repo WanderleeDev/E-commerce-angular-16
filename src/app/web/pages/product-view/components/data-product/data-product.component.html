@@ -1,0 +1,49 @@
+<div class="product">
+  <div class="singleProduct">
+    <div class="singleProduct-img">
+      <app-slider  [listImages]="data.images" [isAutoplay]="true"/>
+    </div>
+  </div>
+
+  <app-rating class="singleProduct-rating"
+    [rating]="data.rating"/>
+
+  <p class="singleProduct-description">
+    {{data.description}}
+  </p>
+
+  <table class="singleProduct-data">
+    <tr class="singleProduct-row">
+      <th class="singleProduct-th">brand</th>
+      <td class="singleProduct-td">
+        {{data.brand}}
+      </td>
+    </tr>
+
+    <tr class="singleProduct-row">
+      <th class="singleProduct-th">stock</th>
+      <td class="singleProduct-td">
+        {{data.stock}}
+      </td>
+    </tr>
+
+    <tr class="singleProduct-row">
+      <th class="singleProduct-th">category</th>
+      <td class="singleProduct-td">
+        <a [routerLink]="'/product/'+ data.category"
+          [attr.aria-label]="'go to the' + data.category | replaceAll: '-': ' ' + 'section '">
+          {{data.category | replaceAll: '-': ' ' }}
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <app-btn-shop />
+
+  <app-price-panel class="singleProduct-price"
+    [dataPanel]="{
+    price: data.price,
+    discount: data.discountPercentage
+  }"/>
+
+</div>

@@ -4,6 +4,8 @@ import { of, switchMap } from 'rxjs';
 
 //  services
 import { HttpProductsService } from '../../services/HttpProducts/http-products.service';
+
+//  interfaces
 import { IProducts } from '../../interfaces/IProducts.interface';
 
 
@@ -13,12 +15,12 @@ import { IProducts } from '../../interfaces/IProducts.interface';
   styleUrls: ['./product-view.component.scss']
 })
 export class ProductViewComponent implements OnInit{
-  singleProduct?: IProducts;
+  singleProduct!: IProducts;
   productName = 'loading ...';
 
   constructor (
     private activateRoute: ActivatedRoute,
-    private httpProductsSvc: HttpProductsService
+    private httpProductsSvc: HttpProductsService,
   ) { }
 
   ngOnInit(): void {
