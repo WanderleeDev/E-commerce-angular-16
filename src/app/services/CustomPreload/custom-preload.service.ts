@@ -10,7 +10,7 @@ export class CustomPreloadService implements PreloadingStrategy {
   preload(
     route: Route,
     load: () => Observable<any>): Observable<any> {
-  
+
     if (route.data && route.data['preload']) {
       return load()
     }

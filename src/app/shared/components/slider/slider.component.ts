@@ -10,10 +10,11 @@ register();
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
+
   @Input({required: true}) listImages: string[] = [];
-  @Input() imgXSlide = 1;
-  @Input() isAutoplay = true;
+  @Input() imgXSlide = 2;
   @Input({required: true}) effect:'coverflow' | 'cube' = 'coverflow';
+
 
   ngOnInit(): void {
     console.log(this.listImages);

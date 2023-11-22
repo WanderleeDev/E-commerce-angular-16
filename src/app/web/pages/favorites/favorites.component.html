@@ -1,21 +1,27 @@
 <section class="whishList">
-  <app-heading textHeading="my whistlist" />
+  <app-heading textHeading="my Wishlist" />
 
-  <div *ngIf="whishList.length !== 0, else emptyList"
+  <div *ngIf="wishlist.length !== 0, else emptyList"
     class="whishList-content">
 
     <ul class="whishList-list">
-      <li class="whishList-item">
+      <li *ngFor="let li of wishlist"
+        class="whishList-item">
         <div class="whishList-product">
-          <img class="whishList-img"
-            src="../../../../assets/img/default.png"
-            alt="WishList item 1"
-          />
-          <p class="whishList-name">
-            Wishlist item 1
+          <a [routerLink]="'/productView/' + li.id "
+            [attr.aria-label]="'Go to see more details about ' + li.title">
+            <img class="whishList-img"
+              [src]="li.thumbnail"
+              [alt]="li.title"
+            />
+          </a>
+          <p class="whishList-name" [title]="li.title">
+            {{li.title}}
           </p>
         </div>
-        <app-monochrome-btn dataBtn="remove">
+
+        <app-monochrome-btn dataBtn="remove"
+          (click)="removeItem(li.id)">
           <svg
             width="24"
             height="24"
@@ -29,11 +35,13 @@
       </li>
     </ul>
 
-    <app-gradient-btn dataBtn="All to cart"/>
+    <app-gradient-btn (click)="addShoppingCart()"
+      dataBtn="All to cart"/>
 
   </div>
 </section>
 
+<!-- si no hay items en la lista -->
 <ng-template #emptyList>
   <figure class="emptyList">
     <app-empty-shopping-cart />

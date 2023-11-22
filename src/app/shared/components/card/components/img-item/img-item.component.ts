@@ -24,7 +24,5 @@ export class ImgItemComponent {
 
   public favoriteHandler (): void {
     this.favoriteProductsSvc.addFavorite(this.product);
-    console.log(this.favoriteProductsSvc.getFavorites());
-
   }
 }

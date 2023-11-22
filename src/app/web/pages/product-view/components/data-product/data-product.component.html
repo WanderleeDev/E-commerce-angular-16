@@ -1,12 +1,13 @@
 <div class="product">
   <div class="singleProduct">
     <div class="singleProduct-img">
-      <app-slider  [listImages]="data.images" [isAutoplay]="true"/>
+      <app-slider  [listImages]="data.images" [effect]="'coverflow'"/>
     </div>
   </div>
 
   <app-rating class="singleProduct-rating"
-    [rating]="data.rating"/>
+    [rating]="data.rating"
+    color="yellow"/>
 
   <p class="singleProduct-description">
     {{data.description}}

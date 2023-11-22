@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class RatingComponent {
   @Input({required: true}) rating!: number;
+  @Input() color = '#000'
 }

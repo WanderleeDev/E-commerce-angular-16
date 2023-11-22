@@ -7,18 +7,11 @@ export class LocalStorageService {
 
   public saveLocalStorage<T> (key: string, obj: T): void {
     const transformData = JSON.stringify(obj);
-    const backupKey = `key-${crypto.randomUUID().slice(0,6)}`;
-    const keySelected = key ? key : backupKey;
-
-    localStorage.setItem(keySelected, transformData);
+    localStorage.setItem(key, transformData);
   }
 
-  public getLocalStorage<T> (key: string): T  {
+  public getLocalStorage<T> (key: string): T | null  {
     const localData = localStorage.getItem(key);
-
-    if (!localData) {
-      throw new Error("no hay data el el localStorage");
-    }
-    return JSON.parse(localData)
+    return localData ? JSON.parse(localData) : null
   }
 }

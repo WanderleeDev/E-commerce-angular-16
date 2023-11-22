@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //  services
-import { CustomPreloadService } from './services/custom-preload.service';
+import { CustomPreloadService } from './services/CustomPreload/custom-preload.service';
 
 const routes: Routes = [
   {

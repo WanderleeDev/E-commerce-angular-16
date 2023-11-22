@@ -14,14 +14,14 @@
     <figcaption class="productCard-name">
       {{product.title}}
     </figcaption>
-
-    <button class="productCard-btn"
-      (click)="favoriteHandler()"
-      title="add favorite"
-      type="button">
-      <app-heart-icon />
-    </button>
   </a>
+  
+  <button class="productCard-btn"
+    (click)="favoriteHandler()"
+    title="add favorite"
+    type="button">
+    <app-heart-icon />
+  </button>
 </figure>
 
 <ng-template #errorImage>
