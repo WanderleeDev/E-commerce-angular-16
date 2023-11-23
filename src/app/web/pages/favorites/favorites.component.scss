@@ -43,8 +43,13 @@
     flex-flow: row wrap;
   }
 
-  &-img {
+  &-link {
+    position: relative;
     width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  &-img {
     aspect-ratio: 50/50;
     object-fit: cover;
     border-radius: 50%;
@@ -63,14 +68,5 @@
     @media screen and (width >= 50rem ) {
       width: max-content;
     }
-  }
-}
-
-.emptyList {
-  width: min(35rem, 100%);
-  margin-inline: auto;
-  text-align: center;
-  &-title {
-    font-size: var(--font-base);
   }
 }

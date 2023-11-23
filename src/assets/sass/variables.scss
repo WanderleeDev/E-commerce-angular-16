@@ -1,6 +1,7 @@
 :root {
   --clr-primary : #000;
   --clr-secondary: #fff;
+  --clr-complementary: #ebc51d;
 
   //------------
   --radius-min: .3rem;
@@ -47,4 +48,11 @@
   --z-index-important: 200; //  no usar
   --z-index-before: -1; //  pseudoElement before
   --z-index-after: 3; //  pseudoElement after
+}
+
+/* (Opcional) Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: light) {
+  :root{
+  --clr-complementary: #57eb1d;
+  }
 }

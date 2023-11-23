@@ -19,6 +19,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { EmptySectionComponent } from './components/empty-section/empty-section.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
         FooterComponent,
         NavbarComponent,
         SearchBoxComponent,
+        EmptySectionComponent,
     ],
     providers: [
         HttpProductsService

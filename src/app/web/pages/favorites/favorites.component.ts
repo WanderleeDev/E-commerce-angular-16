@@ -39,8 +39,10 @@ export class FavoritesComponent implements OnInit, OnDestroy {
     this.favoriteSvc.removeFavorite(id);
   }
 
-  public addShoppingCart (product: IProducts[]): void {
+  public addShoppingCart (product: IProducts | IProducts[]): void {
     console.log(this.wishlist);
-    this.shoppingCartSvc.addPurchase(product)
+    this.shoppingCartSvc.addPurchase(product);
+    // this.favoriteSvc.clearFavorites()
+    console.log(this.wishlist);
   }
 }

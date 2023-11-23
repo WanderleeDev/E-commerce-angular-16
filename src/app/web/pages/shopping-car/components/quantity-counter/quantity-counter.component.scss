@@ -6,6 +6,13 @@
     justify-content: space-between;
     align-items: center;
 
+  &-number {
+    color: var(--clr-complementary, #ebc51d);
+    & span {
+      color: var(--negro);
+    }
+  }
+
   &-controls {
     display: flex;
     align-content: center;

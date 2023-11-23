@@ -21,6 +21,7 @@ import { ScrollToButtonComponent } from './components/scroll-to-button/scroll-to
 import { PricePanelComponent } from './components/card/components/price-panel/price-panel.component';
 import { RatingComponent } from './components/card/components/rating/rating.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { EmptySectionComponent } from './components/empty-section/empty-section.component';
 
 
 
@@ -43,6 +44,7 @@ import { SliderComponent } from './components/slider/slider.component';
         PricePanelComponent,
         RatingComponent,
         SliderComponent,
+        EmptySectionComponent,
     ],
     exports: [
         CardComponent,
@@ -59,7 +61,8 @@ import { SliderComponent } from './components/slider/slider.component';
         PricePanelComponent,
         RatingComponent,
         SliderComponent,
-        BtnShopComponent
+        BtnShopComponent,
+        EmptySectionComponent
     ],
     imports: [
         CommonModule,

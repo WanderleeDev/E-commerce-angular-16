@@ -8,11 +8,13 @@
       <li *ngFor="let li of wishlist"
         class="whishList-item">
         <div class="whishList-product">
-          <a [routerLink]="'/productView/' + li.id "
+          <a class="whishList-link"
+            [routerLink]="'/productView/' + li.id "
             [attr.aria-label]="'Go to see more details about ' + li.title">
             <img class="whishList-img"
-              [src]="li.thumbnail"
+              [ngSrc]="li.thumbnail"
               [alt]="li.title"
+              fill
             />
           </a>
           <p class="whishList-name" [title]="li.title">
@@ -35,7 +37,7 @@
       </li>
     </ul>
 
-    <app-gradient-btn (click)="addShoppingCart()"
+    <app-gradient-btn (click)="addShoppingCart(wishlist)"
       dataBtn="All to cart"/>
 
   </div>
@@ -43,10 +45,7 @@
 
 <!-- si no hay items en la lista -->
 <ng-template #emptyList>
-  <figure class="emptyList">
-    <app-empty-shopping-cart />
-    <figcaption class="emptyList-title">
-      There are no products on your wish list
-    </figcaption>
-  </figure>
+  <app-empty-section >
+    There are no products on your wish list
+  </app-empty-section>
 </ng-template>

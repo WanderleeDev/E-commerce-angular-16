@@ -51,4 +51,9 @@ export class FavoriteProductsService {
     this.myFavorites$.next(listFav);
     this.storage.saveLocalStorage('wishlist', listFav);
   }
+
+  //  limpia la lista de favoritos
+  public clearFavorites (): void {
+    this.myFavorites$.next([]);
+  }
 }

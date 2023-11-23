@@ -19,7 +19,7 @@
     &::first-letter {
       margin-right: .3rem;
       font-weight: 600;
-      color: #ebc51d;
+      color: var(--clr-complementary, #ebc51d);
       font-size: var(--font-md);
     }
   }

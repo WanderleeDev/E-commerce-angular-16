@@ -1,15 +1,27 @@
 <section class="shoppingCar">
+
   <app-heading textHeading="Your Shopping Cart"/>
 
-  <ul class="shoppingCar-list">
+  <ng-container *ngIf="productsList.length > 0, else empty">
+    <ul class="shoppingCar-list">
 
-    <li>
-      <app-shopping-cart-item />
-    </li>
+      <li *ngFor="let product of productsList">
+        <app-shopping-cart-item [product]="product" />
+      </li>
 
-  </ul>
+    </ul>
 
-  <app-box-total-price />
+    <app-box-total-price />
 
-  <app-gradient-btn dataBtn="proceed to checkout"/>
+    <app-gradient-btn dataBtn="proceed to checkout"/>
+  </ng-container>
+
 </section>
+
+<ng-template #empty>
+  <app-empty-section >
+    You don't have any products in your shopping cart
+    <app-gradient-btn routerLink="/all-products"
+      dataBtn="view products"/>
+  </app-empty-section>
+</ng-template>

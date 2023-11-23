@@ -1,8 +1,12 @@
 .cardShop {
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  @media screen and (width >= 40rem) {
+    flex-wrap: nowrap;
+  }
 
   &-figure {
     display: flex;
@@ -26,13 +30,29 @@
   &-data {
     display: grid;
     gap: .5rem;
+    justify-content: space-between;
+    max-width: 10rem;
   }
 
+  &-dataWrapper {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+  }
   &-price {
-    margin-left: .5rem;
+    &::first-letter {
+      font-weight: 600;
+      color: var(--clr-complementary, #ebc51d);
+      margin-right: .2rem;
+    }
   }
 
   &-text--bold {
+    display: inline-block;
     font-weight: 600;
+    width: clamp(10rem, 20rem, 20vw);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
   }
 }
