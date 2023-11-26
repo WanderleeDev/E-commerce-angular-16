@@ -1,4 +1,11 @@
+:host {
+  display: contents;
+}
+
 .searchBox {
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: #FCFCFD;
   width: min(20rem, 100%);
   display: grid;
@@ -9,6 +16,7 @@
   &-input {
     color: black;
     display: block;
+    text-transform: lowercase;
     padding: .3rem .5rem;
     width: 100%;
     appearance: none;

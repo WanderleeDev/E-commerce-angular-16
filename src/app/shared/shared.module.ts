@@ -22,6 +22,7 @@ import { PricePanelComponent } from './components/card/components/price-panel/pr
 import { RatingComponent } from './components/card/components/rating/rating.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { EmptySectionComponent } from './components/empty-section/empty-section.component';
+import { ErrorModalComponent } from './components/error-modal/error-modal.component';
 
 
 
@@ -45,6 +46,7 @@ import { EmptySectionComponent } from './components/empty-section/empty-section.
         RatingComponent,
         SliderComponent,
         EmptySectionComponent,
+        ErrorModalComponent,
     ],
     exports: [
         CardComponent,
@@ -62,7 +64,8 @@ import { EmptySectionComponent } from './components/empty-section/empty-section.
         RatingComponent,
         SliderComponent,
         BtnShopComponent,
-        EmptySectionComponent
+        EmptySectionComponent,
+        ErrorModalComponent
     ],
     imports: [
         CommonModule,

@@ -2,6 +2,7 @@
     class="searchBox"
     for="searchBox">
     <input
+      [value]="messageTranscript "
       [disabled]="isActiveListening"
       class="searchBox-input"
       type="search"
@@ -11,12 +12,13 @@
 
       <div class="searchBox-controls">
         <button
-          (click)="listening()"
+        (click)="listening()"
+          #btnSpeech
           [title]="labelText"
           [attr.aria-label]="labelText"
           class="searchBox-btn"
           type="button">
-            <app-bars-icon *ngIf="isActiveListening; else microphoneIcon" />
+          <app-bars-icon *ngIf="isActiveListening; else microphoneIcon" />
         </button>
 
         <button
@@ -38,3 +40,9 @@
   <ng-template #microphoneIcon>
     <app-microphone-icon />
   </ng-template>
+
+  <ng-template>
+    <app-error-modal></app-error-modal>
+  </ng-template>
+
+  <!-- (click)="listening()" -->

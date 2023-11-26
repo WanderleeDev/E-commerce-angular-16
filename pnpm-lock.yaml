@@ -25,6 +25,9 @@ dependencies:
   '@angular/router':
     specifier: ^16.1.0
     version: 16.1.0(@angular/common@16.1.0)(@angular/core@16.1.0)(@angular/platform-browser@16.1.0)(rxjs@7.8.0)
+  '@types/dom-speech-recognition':
+    specifier: ^0.0.4
+    version: 0.0.4
   rxjs:
     specifier: ~7.8.0
     version: 7.8.0
@@ -2539,6 +2542,10 @@ packages:
     dependencies:
       '@types/node': 20.8.9
     dev: true
+
+  /@types/dom-speech-recognition@0.0.4:
+    resolution: {integrity: sha512-zf2GwV/G6TdaLwpLDcGTIkHnXf8JEf/viMux+khqKQKDa8/8BAUtXXZS563GnvJ4Fg0PBLGAaFf2GekEVSZ6GQ==}
+    dev: false
 
   /@types/eslint-scope@3.7.6:
     resolution: {integrity: sha512-zfM4ipmxVKWdxtDaJ3MP3pBurDXOCoyjvlpE3u6Qzrmw4BPbfm4/ambIeTk/r/J0iq/+2/xp0Fmt+gFvXJY2PQ==}
