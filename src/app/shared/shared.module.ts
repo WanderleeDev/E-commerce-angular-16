@@ -23,6 +23,7 @@ import { RatingComponent } from './components/card/components/rating/rating.comp
 import { SliderComponent } from './components/slider/slider.component';
 import { EmptySectionComponent } from './components/empty-section/empty-section.component';
 import { ErrorModalComponent } from './components/error-modal/error-modal.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 
 
@@ -47,6 +48,7 @@ import { ErrorModalComponent } from './components/error-modal/error-modal.compon
         SliderComponent,
         EmptySectionComponent,
         ErrorModalComponent,
+        SearchBoxComponent
     ],
     exports: [
         CardComponent,
@@ -65,7 +67,8 @@ import { ErrorModalComponent } from './components/error-modal/error-modal.compon
         SliderComponent,
         BtnShopComponent,
         EmptySectionComponent,
-        ErrorModalComponent
+        ErrorModalComponent,
+        SearchBoxComponent
     ],
     imports: [
         CommonModule,

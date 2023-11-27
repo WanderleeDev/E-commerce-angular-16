@@ -18,7 +18,6 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 
 @NgModule({
@@ -34,7 +33,6 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
         CategoriesComponent,
         FooterComponent,
         NavbarComponent,
-        SearchBoxComponent,
     ],
     providers: [
         HttpProductsService
@@ -43,7 +41,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
         CommonModule,
         NgOptimizedImage,
         webRoutingModule,
-        SharedModule,
+        SharedModule
     ]
 })
 export class WebModule { }
