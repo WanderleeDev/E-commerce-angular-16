@@ -11,18 +11,18 @@ import { RecommendedProductsComponent } from './components/recommended-products/
 
 
 @NgModule({
-  declarations: [
-    ProductViewComponent,
-    CommentsBoxComponent,
-    DataProductComponent,
-    RecommendedProductsComponent
-  ],
-  imports: [
-    CommonModule,
-    ProductViewRoutingModule,
-    NgOptimizedImage,
-    SharedModule,
-    PipesModule
-  ]
+    declarations: [
+        ProductViewComponent,
+        CommentsBoxComponent,
+        DataProductComponent,
+        RecommendedProductsComponent
+    ],
+    imports: [
+        CommonModule,
+        ProductViewRoutingModule,
+        NgOptimizedImage,
+        PipesModule,
+        SharedModule
+    ]
 })
 export class ProductViewModule { }

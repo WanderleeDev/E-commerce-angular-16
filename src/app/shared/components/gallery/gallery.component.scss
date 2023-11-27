@@ -6,6 +6,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
     gap: calc(2rem + 4vw) calc(2rem + 2vw);
-    padding-block: 4rem;
+    padding-block: 1rem 4rem;
   }
 }
