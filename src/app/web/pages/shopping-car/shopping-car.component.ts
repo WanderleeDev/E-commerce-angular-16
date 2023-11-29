@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 //  service
 import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.service';
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 //  interfaces
 import { IProducts } from '../../interfaces/IProducts.interface';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -16,13 +17,15 @@ export class ShoppingCarComponent implements OnInit, OnDestroy {
   shoppingCartSub = new Subscription();
 
   constructor (
-    private shoppingCartSvc: ShoppingCartService
-  ) {}
+    private shoppingCartSvc: ShoppingCartService,
+  ) {
+  }
 
   ngOnInit(): void {
+
     this.shoppingCartSub  = this.shoppingCartSvc.getShopCartOb$()
       .subscribe({
-        next: (res => { this.productsList = res, console.log(res) }),
+        next: (res => { this.productsList = res }),
         error: (err: HttpErrorResponse) => console.log(err.message),
         complete: () => console.log('data obtain')
       });

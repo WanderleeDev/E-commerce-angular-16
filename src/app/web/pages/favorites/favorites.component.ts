@@ -6,6 +6,7 @@ import { IProducts } from '../../interfaces/IProducts.interface';
 //  services
 import { FavoriteProductsService } from '../../services/favoriteProducts/favorite-products.service';
 import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.service';
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class FavoritesComponent implements OnInit, OnDestroy {
 
   constructor (
     private favoriteSvc: FavoriteProductsService,
-    private shoppingCartSvc: ShoppingCartService
+    private shoppingCartSvc: ShoppingCartService,
+    private LocalStorageSvc: LocalStorageService
   ) {}
 
 
@@ -39,10 +41,10 @@ export class FavoritesComponent implements OnInit, OnDestroy {
     this.favoriteSvc.removeFavorite(id);
   }
 
-  public addShoppingCart (product: IProducts | IProducts[]): void {
-    console.log(this.wishlist);
-    this.shoppingCartSvc.addPurchase(product);
-    // this.favoriteSvc.clearFavorites()
-    console.log(this.wishlist);
+  public addShoppingCart (products: IProducts[]): void {
+    this.shoppingCartSvc.updateShoppingCart(products);
+    this.LocalStorageSvc.saveLocalStorage('shoppingCar', products)
+    this.favoriteSvc.clearFavorites()
+    this.LocalStorageSvc.removeLocalBackup('wishlist')
   }
 }

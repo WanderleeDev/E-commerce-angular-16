@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./quantity-counter.component.scss']
 })
 export class QuantityCounterComponent {
-
+  totalProduct = 0;
 }

@@ -1,0 +1,13 @@
+  //  guards types
+  //  verifica q solo sea un producto
+  private isSingleProduct (dataProduct:  IProducts | IProducts[]): dataProduct is IProducts {
+    return ('title' in dataProduct && 'rating' in dataProduct);
+  }
+
+  //  verifica q solo sea un array de productos
+  private isProductArray (dataProduct: IProducts | IProducts[]): dataProduct is IProducts[] {
+    return (
+      Array.isArray(dataProduct) &&
+      dataProduct.every(data => this.isSingleProduct(data))
+    )
+  }
