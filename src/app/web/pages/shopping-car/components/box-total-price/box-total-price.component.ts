@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+//  interfaces
+import { IOrderSummary } from 'src/app/web/interfaces/IOrderSummary.interface';
 
 @Component({
   selector: 'app-box-total-price',
@@ -6,10 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./box-total-price.component.scss']
 })
 export class BoxTotalPriceComponent {
-  taxes = 10;
-  dataBox = [
-    'subtotal',
-    'taxes',
-    'total'
-  ];
+  @Input() orderSummary!: IOrderSummary;
 }

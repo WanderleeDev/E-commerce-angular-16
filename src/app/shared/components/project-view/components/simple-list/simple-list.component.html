@@ -1,0 +1,14 @@
+<div>
+  <strong class="list">{{contentList?.title}}:</strong>
+  <ul class="list-tools">
+
+    <li *ngFor="let li of contentList?.list">
+      <span *ngIf="contentList?.unicode"
+        class="list-icon">
+        {{contentList?.unicode}}
+      </span>
+      {{li}}
+    </li>
+
+  </ul>
+</div>

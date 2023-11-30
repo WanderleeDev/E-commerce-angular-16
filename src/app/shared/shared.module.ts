@@ -27,6 +27,8 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { ProjectViewComponent } from './components/project-view/project-view.component';
 import { PhotoComponent } from './components/project-view/components/photo/photo.component';
 import { InfoDocumentComponent } from './components/project-view/components/info-document/info-document.component';
+import { SimpleListComponent } from './components/project-view/components/simple-list/simple-list.component';
+import { LinksComponent } from './components/project-view/components/links/links.component';
 
 
 
@@ -54,7 +56,9 @@ import { InfoDocumentComponent } from './components/project-view/components/info
         SearchBoxComponent,
         ProjectViewComponent,
         PhotoComponent,
-        InfoDocumentComponent
+        InfoDocumentComponent,
+        SimpleListComponent,
+        LinksComponent
     ],
     exports: [
         CardComponent,

@@ -6,6 +6,7 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 //  interfaces
 import { IProducts } from '../../interfaces/IProducts.interface';
 import { HttpErrorResponse } from '@angular/common/http';
+import { IOrderSummary } from '../../interfaces/IOrderSummary.interface';
 
 @Component({
   selector: 'app-shopping-car',
@@ -15,17 +16,19 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class ShoppingCarComponent implements OnInit, OnDestroy {
   productsList: IProducts[] = [];
   shoppingCartSub = new Subscription();
+  protected orderSummary!: IOrderSummary
 
   constructor (
     private shoppingCartSvc: ShoppingCartService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-
     this.shoppingCartSub  = this.shoppingCartSvc.getShopCartOb$()
       .subscribe({
-        next: (res =>  this.productsList = [...res] ),
+        next: (res =>  {
+          this.productsList = [...res],
+          this.orderSummary = this.shoppingCartSvc.getOrderSummary()
+        }),
         error: (err: HttpErrorResponse) => console.log(err.message),
         complete: () => console.log('data obtain')
       });

@@ -1,3 +1,7 @@
+// * Tener fuentes en local
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap');
+
 :host {
   display: contents;
 }
@@ -7,11 +11,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Outfit', sans-serif;
   padding-inline: 3rem;
   padding-block: 4rem;
   min-height: 100dvh;
   background-color: #4CD1F4;
   // background: linear-gradient( 90deg,#FBFBFB, #F7F7F7);
+  overflow: hidden;
 }
 
 .document {
@@ -37,16 +43,18 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 2rem;
+    @media screen and (width >= 50rem) {
+      &:nth-child(1) {
+        padding-right: 1rem;
+      }
 
-    &:nth-child(1) {
-      padding-right: 1rem;
+      &:nth-child(2) {
+        padding-left: 1rem;
+        background-position: center center;
+        border-left: 3px solid #C5908A;
+      }
     }
 
-    &:nth-child(2) {
-      padding-left: 1rem;
-      background-position: center center;
-      border-left: 3px solid #C5908A;
-    }
   }
 
   &-content {
@@ -65,55 +73,12 @@
     text-wrap: balance;
     font-size: var(--font-base, 1.2rem);
   }
+}
 
-  &-list {
-    font-weight: 600;
-  }
-
-
-  &-tools {
-    padding-top: .3rem;
-
-    li {
-      position: relative;
-      padding: .3rem;
-      padding-left: 1.8rem;
-      accent-color: red;
-      caret-color: #4CD1F4;
-      &::before {
-        position: absolute;
-        content: '✏️';
-        left: 0;
-        top: 50%;
-        transform: translateY(-60%);
-      }
-    }
-  }
-
-  &-links {
-    font-weight: 600;
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1rem;
-    color: rgb(156, 73, 73);
-    a {
-      position: relative;
-      &::before {
-        bottom: -.1rem;
-        content: '';
-        position: absolute;
-        height: .15rem;
-        background-color: currentColor;
-        width: 100%;
-        opacity: 0;
-      }
-      
-      &:hover {
-        transform: scale(1.1);
-        &::before {
-          opacity: 1;
-        }
-      }
-    }
-  }
+.ngx {
+  width: 10rem;
+  height: 10rem;
+  padding: .5rem;
+  border-radius: .3rem;
+  align-self: flex-end;
 }

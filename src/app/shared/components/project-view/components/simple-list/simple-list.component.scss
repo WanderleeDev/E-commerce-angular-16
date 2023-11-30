@@ -1,0 +1,26 @@
+:host {
+  display: contents;
+}
+
+.list {
+  font-weight: 600;
+
+  &-tools {
+    padding-top: .3rem;
+
+    li {
+      font-size: var(--font-sm);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .3rem;
+    }
+  }
+
+  &-icon {
+    color: green;
+    font-size: 1rem;
+  }
+}
+
+

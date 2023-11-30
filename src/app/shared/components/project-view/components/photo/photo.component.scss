@@ -8,18 +8,25 @@
   background-color: currentColor;
   position: relative;
   width: min(25rem, 100%);
+  min-height: 12rem;
   border: unset .5rem;
   box-shadow: -11px 12px 3px 0px var(--shadow-opacity, rgba(0,0,0,0.21));
   -webkit-box-shadow: -11px 12px 3px 0px var(--shadow-opacity, rgba(0,0,0,0.21));
   -moz-box-shadow: -11px 12px 3px 0px var(--shadow-opacity, rgba(0,0,0,0.21));
-  transform: rotate(15deg) skew(-3deg);
+  transform: rotate(20deg) skew(-3deg);
   perspective: 700px;
   cursor: move;
   transition: transform .2s linear;
   z-index: 1;
   border-bottom: solid .15rem gray;
   border-left: solid .15rem gray;
-  
+  @media screen and (width >= 50rem) {
+    min-height: 20rem;
+  }
+
+  &-img{
+    user-select: none;
+  }
 
   &:hover > .photo-title {
     transform: rotate(270deg) translateY(-4rem) translateX(-50%);

@@ -1,11 +1,19 @@
 <div class="totalPrice">
 
-  <div *ngFor="let data of dataBox"
+  <div *ngFor="let data of orderSummary | keyvalue; let i = index"
     class="totalPrice-subContainer">
     <span class="totalPrice-data totalPrice-data--bold">
-      {{data}}
+      {{data.key}}
     </span>
-    <span class="totalPrice-data">$299.97</span>
+
+    <span *ngIf="i !== 1; else tax"
+      class="totalPrice-data">
+      {{data.value | currency}}
+    </span>
+
+    <ng-template #tax>
+      <span class="totalPrice-data">{{data.value}} %</span>
+    </ng-template>
   </div>
 
 </div>

@@ -5,11 +5,9 @@ import { Component } from '@angular/core';
   template: '<router-outlet />',
   styles: [`
     :host {
-      display: block;
-      height: 100dvh;
+      display: contents;
+      // height: 100dvh;
     }
   `]
 })
-export class AuthComponent {
-
-}
+export class AuthComponent {}
