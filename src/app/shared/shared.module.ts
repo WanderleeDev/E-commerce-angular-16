@@ -24,6 +24,9 @@ import { SliderComponent } from './components/slider/slider.component';
 import { EmptySectionComponent } from './components/empty-section/empty-section.component';
 import { ErrorModalComponent } from './components/error-modal/error-modal.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { ProjectViewComponent } from './components/project-view/project-view.component';
+import { PhotoComponent } from './components/project-view/components/photo/photo.component';
+import { InfoDocumentComponent } from './components/project-view/components/info-document/info-document.component';
 
 
 
@@ -48,7 +51,10 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
         SliderComponent,
         EmptySectionComponent,
         ErrorModalComponent,
-        SearchBoxComponent
+        SearchBoxComponent,
+        ProjectViewComponent,
+        PhotoComponent,
+        InfoDocumentComponent
     ],
     exports: [
         CardComponent,
@@ -68,7 +74,8 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
         BtnShopComponent,
         EmptySectionComponent,
         ErrorModalComponent,
-        SearchBoxComponent
+        SearchBoxComponent,
+        ProjectViewComponent
     ],
     imports: [
         CommonModule,

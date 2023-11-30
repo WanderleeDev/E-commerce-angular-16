@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 
-
+// refactor code
 @Injectable({
   providedIn: 'root'
 })
@@ -14,17 +14,20 @@ export class ShoppingCartService {
 
   constructor (
     private LocalStorageSvc: LocalStorageService
-  ) {
-    console.log('ini');
+  ) {}
 
+  private setBackUpShoppingCar (): void {
     const backupShoppingCar: IProducts[] = this.LocalStorageSvc.getLocalStorage('shoppingCar');
-    this.updateShoppingCart(backupShoppingCar);
+    this.shoppingCart$.next([...backupShoppingCar])
+    this.LocalStorageSvc.saveLocalStorage('shoppingCar', this.shoppingCart$.getValue());
+    // this.updateShoppingCart(backupShoppingCar);
   }
 
   public getShopCartOb$ (): Observable<IProducts[]> {
+    this.setBackUpShoppingCar()
     return this.shoppingCart$.asObservable()
   }
-
+  
   public updateShoppingCart (value: IProducts[]): void {
     this.shoppingCart$.next([...this.shoppingCart$.getValue(), ...value]);
     this.LocalStorageSvc.saveLocalStorage('shoppingCar', this.shoppingCart$.getValue());

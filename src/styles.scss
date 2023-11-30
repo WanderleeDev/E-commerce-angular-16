@@ -3,6 +3,10 @@
 @use './assets/sass/mixins.scss' as *;
 @use './assets/sass/variables.scss' as *;
 
+body {
+  // overflow: hidden;
+}
+
 //  navbar toggle
 .col {
   grid-template-columns: auto !important;

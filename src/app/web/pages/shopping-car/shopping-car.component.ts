@@ -25,7 +25,7 @@ export class ShoppingCarComponent implements OnInit, OnDestroy {
 
     this.shoppingCartSub  = this.shoppingCartSvc.getShopCartOb$()
       .subscribe({
-        next: (res => { this.productsList = res }),
+        next: (res =>  this.productsList = [...res] ),
         error: (err: HttpErrorResponse) => console.log(err.message),
         complete: () => console.log('data obtain')
       });

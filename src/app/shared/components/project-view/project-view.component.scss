@@ -1,0 +1,119 @@
+:host {
+  display: contents;
+}
+
+.myProject {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 3rem;
+  padding-block: 4rem;
+  min-height: 100dvh;
+  background-color: #4CD1F4;
+  // background: linear-gradient( 90deg,#FBFBFB, #F7F7F7);
+}
+
+.document {
+  padding: calc(1rem + 1vw);
+  display: grid;
+  width: min(40rem, 100%);
+  min-height: 30rem;
+  font-weight: 300;
+  transform: rotateX(20deg) rotateY(3deg) translateY(-3rem);
+  color: rgb(29, 29, 29);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  background-image: url('../../../../assets/img/textura-papel-rayado_1203-1925.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  @media screen and (width >= 50rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+
+    &:nth-child(1) {
+      padding-right: 1rem;
+    }
+
+    &:nth-child(2) {
+      padding-left: 1rem;
+      background-position: center center;
+      border-left: 3px solid #C5908A;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &-title {
+    font-weight: 600;
+    font-size: var(--font-md, 1.5rem);
+  }
+
+  &-description {
+    line-height: 1.5;
+    text-wrap: balance;
+    font-size: var(--font-base, 1.2rem);
+  }
+
+  &-list {
+    font-weight: 600;
+  }
+
+
+  &-tools {
+    padding-top: .3rem;
+
+    li {
+      position: relative;
+      padding: .3rem;
+      padding-left: 1.8rem;
+      accent-color: red;
+      caret-color: #4CD1F4;
+      &::before {
+        position: absolute;
+        content: '✏️';
+        left: 0;
+        top: 50%;
+        transform: translateY(-60%);
+      }
+    }
+  }
+
+  &-links {
+    font-weight: 600;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    color: rgb(156, 73, 73);
+    a {
+      position: relative;
+      &::before {
+        bottom: -.1rem;
+        content: '';
+        position: absolute;
+        height: .15rem;
+        background-color: currentColor;
+        width: 100%;
+        opacity: 0;
+      }
+      
+      &:hover {
+        transform: scale(1.1);
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
