@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-//  interface
-import { IProducts } from '../../interfaces/IProducts.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
-
-import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+//  interface
 import { IOrderSummary } from '../../interfaces/IOrderSummary.interface';
+import { IProducts } from '../../interfaces/IProducts.interface';
+// services
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 
-// refactor code
+// ! refactor code
 @Injectable({
   providedIn: 'root'
 })

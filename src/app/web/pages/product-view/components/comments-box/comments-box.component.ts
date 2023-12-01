@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICometary } from 'src/app/web/interfaces/ICometary.interface';
-import { pipe, take } from 'rxjs';
+import { take } from 'rxjs';
 
 //  services
 import { HttpCometaryService } from 'src/app/web/services/HttpCometary/http-cometary.service';

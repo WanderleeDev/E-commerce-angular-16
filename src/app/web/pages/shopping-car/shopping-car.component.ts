@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 //  service
 import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.service';
-import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 //  interfaces
 import { IProducts } from '../../interfaces/IProducts.interface';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -23,7 +22,7 @@ export class ShoppingCarComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.shoppingCartSub  = this.shoppingCartSvc.getShopCartOb$()
+    this.shoppingCartSub = this.shoppingCartSvc.getShopCartOb$()
       .subscribe({
         next: (res =>  {
           this.productsList = [...res],
@@ -35,6 +34,8 @@ export class ShoppingCarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    console.log(this.shoppingCartSub);
+
     this.shoppingCartSub.unsubscribe();
   }
 }

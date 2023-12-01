@@ -3,12 +3,11 @@
     <a class="cardShop-link"
       [routerLink]="'/productView/' + product.id"
       [attr.aria-label]="'Go to see more details about ' + product.title">
-      <img [ngSrc]="product.thumbnail"
-        width="80"
-        height="80"
-        alt="Product"
+      <img class="cardShop-img"
+        [ngSrc]="product.thumbnail"
         class="rounded-md object-cover"
-        style="aspect-ratio: 64 / 64; object-fit: cover"
+        alt="Product"
+        fill
       />
     </a>
 

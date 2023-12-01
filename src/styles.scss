@@ -3,9 +3,7 @@
 @use './assets/sass/mixins.scss' as *;
 @use './assets/sass/variables.scss' as *;
 
-body {
-  // overflow: hidden;
-}
+@import 'ngx-toastr/toastr';
 
 //  navbar toggle
 .col {

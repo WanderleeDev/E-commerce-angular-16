@@ -15,7 +15,7 @@ export class ImgItemComponent {
 
   constructor (
     private imageErrorSvc: ImageErrorService,
-    private favoriteProductsSvc: FavoriteProductsService
+    private favoriteProductsSvc: FavoriteProductsService,
   ) {}
 
   public errorImgHandler (e: Event): void {
@@ -23,6 +23,6 @@ export class ImgItemComponent {
   }
 
   public favoriteHandler (): void {
-    this.favoriteProductsSvc.addFavorite(this.product);
+    this.favoriteProductsSvc.toggleFavoriteProduct(this.product);
   }
 }

@@ -16,16 +16,21 @@
 
   &-link {
     position: relative;
+    width: 5rem;
+    height: 5rem;
+    
     img {
       border-radius: var(--radius-xs);
       border: solid .15rem transparent;
       transition: border .1s linear;
-    }
-
-    &:hover img {
-      border-color: #fff;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      &:hover {
+        border-color: #fff;
+      }
     }
   }
+
 
   &-data {
     display: grid;
