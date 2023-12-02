@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 //  service
 import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.service';
 //  interfaces
-import { IProducts } from '../../interfaces/IProducts.interface';
+import { IMyProductsCar } from '../../interfaces/IProducts.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IOrderSummary } from '../../interfaces/IOrderSummary.interface';
 
@@ -13,7 +13,7 @@ import { IOrderSummary } from '../../interfaces/IOrderSummary.interface';
   styleUrls: ['./shopping-car.component.scss']
 })
 export class ShoppingCarComponent implements OnInit, OnDestroy {
-  productsList: IProducts[] = [];
+  productsList: IMyProductsCar[] = [];
   shoppingCartSub = new Subscription();
   protected orderSummary!: IOrderSummary
 
@@ -34,8 +34,6 @@ export class ShoppingCarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log(this.shoppingCartSub);
-
     this.shoppingCartSub.unsubscribe();
   }
 }

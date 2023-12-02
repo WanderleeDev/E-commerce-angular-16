@@ -40,3 +40,9 @@ export type ProductCategory =
   | "automotive"
   | "motorcycle"
   | "lighting";
+
+
+  //  for shoppingCar
+  export interface IMyProductsCar extends Omit<IProducts, 'images'| 'stock'>  {
+    quantity: number;
+  }

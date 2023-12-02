@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProducts } from 'src/app/web/interfaces/IProducts.interface';
+import { IMyProductsCar } from 'src/app/web/interfaces/IProducts.interface';
 
 @Component({
   selector: 'app-shopping-cart-item',
@@ -7,5 +7,5 @@ import { IProducts } from 'src/app/web/interfaces/IProducts.interface';
   styleUrls: ['./shopping-cart-item.component.scss']
 })
 export class ShoppingCartItemComponent {
-  @Input({required: true}) product!: IProducts;
+  @Input({required: true}) product!: IMyProductsCar;
 }

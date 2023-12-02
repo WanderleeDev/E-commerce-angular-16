@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-quantity-counter',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./quantity-counter.component.scss']
 })
 export class QuantityCounterComponent {
-  totalProduct = 0;
+  @Input({required: true}) totalProduct = 0;
 }

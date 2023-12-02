@@ -2,14 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 //  interface
-import { IProducts } from '../../interfaces/IProducts.interface';
+import { IMyProductsCar, IProducts } from '../../interfaces/IProducts.interface';
 //  services
 import { FavoriteProductsService } from '../../services/favoriteProducts/favorite-products.service';
 import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.service';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { ToastrService } from 'ngx-toastr';
-//  config
-import { configToastr } from 'src/app/helpers/toastr.config';
 
 @Component({
   selector: 'app-favorites',
@@ -24,11 +21,10 @@ export class FavoritesComponent implements OnInit, OnDestroy {
     private favoriteSvc: FavoriteProductsService,
     private shoppingCartSvc: ShoppingCartService,
     private LocalStorageSvc: LocalStorageService,
-    private ToastrSvc: ToastrService
   ) {}
 
   ngOnInit(): void {
-    this.subscriptionFav = this.favoriteSvc.getFavOb$().subscribe({
+    this.subscriptionFav = this.favoriteSvc.getFavoriteListObservable$().subscribe({
       next: (fav) => (this.wishlist = fav),
       error: (err: HttpErrorResponse) => console.error(err.message),
     });
@@ -43,13 +39,9 @@ export class FavoritesComponent implements OnInit, OnDestroy {
   }
 
   public addShoppingCart(products: IProducts[]): void {
-    this.shoppingCartSvc.updateShoppingCart(products);
-    this.LocalStorageSvc.saveLocalStorage('shoppingCar', products);
+    const myProductDto: IMyProductsCar[] = products.map(({ images, stock, ...product }) => ({ ...product, quantity: 1 }))
+    this.shoppingCartSvc.updateShoppingCart(myProductDto);
+    // this.LocalStorageSvc.saveLocalStorage('shoppingCar', myProductDto);
     this.favoriteSvc.clearFavorites();
-    this.LocalStorageSvc.removeLocalBackup('wishlist');
-    this.ToastrSvc.success(
-      `${products.length} productos agregados al carrito`, '',
-      configToastr
-    );
   }
 }

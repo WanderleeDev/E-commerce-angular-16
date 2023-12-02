@@ -14,14 +14,14 @@ export class FavoriteProductsService {
   private repeatFavoriteMessage = 'removed from favorites';
 
   constructor (
-    private storage: LocalStorageService,
-    private toastr: ToastrService
+    private storageSvc: LocalStorageService,
+    private toastrSvc: ToastrService
   ) {
-    const backupFavorites: IProducts[] | null = storage.getLocalStorage('wishlist')
+    const backupFavorites: IProducts[] | null = storageSvc.getLocalStorage('wishlist')
     if (backupFavorites) this.updateFavorites(backupFavorites)
   }
 
-  public getFavOb$(): Observable<IProducts[]> {
+  public getFavoriteListObservable$(): Observable<IProducts[]> {
     return this.myFavorites$.asObservable();
   }
 
@@ -37,21 +37,22 @@ export class FavoriteProductsService {
   private addFavorite (product: IProducts, previousFavorites: IProducts[] = []) {
     const newFavorites = [...previousFavorites, product]
     this.updateFavorites(newFavorites)
-    this.toastr.success(`${product.title ?? 'product'} ${this.newFavoriteMessage}`)
+    this.toastrSvc.success(`${product.title ?? 'product'} ${this.newFavoriteMessage}`)
   }
 
   public removeFavorite(product: IProducts): void {
     const filterFavorites = this.myFavorites$.getValue().filter((fav) =>  fav.id !== product.id);
     this.updateFavorites(filterFavorites);
-    this.toastr.error(`${product.title ?? 'product'} ${this.repeatFavoriteMessage}`)
+    this.toastrSvc.error(`${product.title ?? 'product'} ${this.repeatFavoriteMessage}`)
   }
 
   private updateFavorites(listFav: IProducts[]): void {
     this.myFavorites$.next(listFav);
-    this.storage.saveLocalStorage('wishlist', listFav);
+    this.storageSvc.saveLocalStorage('wishlist', listFav);
   }
 
   public clearFavorites (): void {
     this.myFavorites$.next([]);
+    this.storageSvc.removeLocalBackup('wishlist');
   }
 }

@@ -21,7 +21,7 @@
           {{product.price | currency}}
         </span>
       </figcaption>
-      <app-quantity-counter />
+      <app-quantity-counter [totalProduct]="product.quantity"/>
     </div>
   </figure>
 
