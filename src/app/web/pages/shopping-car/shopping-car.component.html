@@ -4,11 +4,9 @@
 
   <ng-container *ngIf="productsList.length > 0, else empty">
     <ul class="shoppingCar-list">
-
       <li *ngFor="let product of productsList">
         <app-shopping-cart-item [product]="product" />
       </li>
-
     </ul>
 
     <app-box-total-price [orderSummary]="orderSummary"/>

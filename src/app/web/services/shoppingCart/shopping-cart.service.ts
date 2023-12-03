@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, reduce } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 //  interface
 import { IOrderSummary } from '../../interfaces/IOrderSummary.interface';
-import {
-  IProducts,
-  IMyProductsCar,
-} from '../../interfaces/IProducts.interface';
+import { IMyProductsCar } from '../../interfaces/IProducts.interface';
 // services
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { ToastrService } from 'ngx-toastr';
+import { CustomToastService } from '../customToast/custom-toast.service';
 
-// ! refactor code
+
 @Injectable({
   providedIn: 'root',
 })
@@ -22,29 +19,26 @@ export class ShoppingCartService {
   private removeProductMessage = 'removed from shopping cart';
 
   constructor(
-    private LocalStorageSvc: LocalStorageService,
-    private toastrSvc: ToastrService
+    private localStorageSvc: LocalStorageService,
+    private CustomToastSvc: CustomToastService
   ) {
-    this.shoppingCart$.next(
-      this.LocalStorageSvc.getLocalStorage(this.localStorageKey)
-    );
-    console.log(this.shoppingCart$.getValue(), '+');
+    this.shoppingCart$.next(this.localStorageSvc.getLocalStorage(this.localStorageKey));
   }
 
-  public getShopCartOb$(): Observable<IMyProductsCar[]> {
+  public getShopCartOb$ (): Observable<IMyProductsCar[]> {
     return this.shoppingCart$.asObservable();
   }
 
-  public updateShoppingCart(newProducts: IMyProductsCar[]): void {
-    const myProducts =this.unifyMyProducts(newProducts)
+  public updateShoppingCart (newProducts: IMyProductsCar[]): void {
+    const myProducts =this.unifyMyProducts(this.shoppingCart$.getValue(),newProducts)
 
     this.shoppingCart$.next(myProducts);
-    this.toastrSvc.success(`${myProducts.length} ${this.newProductMessage}`);
-    this.LocalStorageSvc.saveLocalStorage('shoppingCar', this.shoppingCart$.getValue());
+    this.CustomToastSvc.success(`${newProducts.length} ${this.newProductMessage}`);
+    this.localStorageSvc.saveLocalStorage('shoppingCar', this.shoppingCart$.getValue());
   }
 
-  private unifyMyProducts (newProducts: IMyProductsCar[]): IMyProductsCar[] {
-    const unifiedProducts =  this.shoppingCart$.getValue().map(prevProduct => {
+  private unifyMyProducts (currentProducts: IMyProductsCar[], newProducts: IMyProductsCar[]): IMyProductsCar[] {
+    const unifiedProducts =  currentProducts.map(prevProduct => {
       const matchingProducts = newProducts.filter(newProduct => newProduct.title.toLowerCase() === prevProduct.title.toLowerCase());
 
       return matchingProducts.length > 0
@@ -61,7 +55,7 @@ export class ShoppingCartService {
     return [...unifiedProducts,...newProductsNotInPrevious];
   }
 
-  public getOrderSummary(): IOrderSummary {
+  public getOrderSummary (): IOrderSummary {
     const orderSummary: IOrderSummary = {
       subTotal: 0,
       taxes: 0,
@@ -74,9 +68,21 @@ export class ShoppingCartService {
     return orderSummary;
   }
 
-  private getSubTotal(): number {
+  private getSubTotal (): number {
     return this.shoppingCart$
       .getValue()
-      .reduce((previous, current) => previous + current.price, 0);
+      .reduce((previous, current) => previous + current.price * current.quantity, 0);
   }
+
+  public removeProduct (id: number, title: string):void {
+    this.shoppingCart$.next(
+      this.shoppingCart$.getValue().filter(product => product.id !== id)
+    );
+    this.localStorageSvc.saveLocalStorage('shoppingCar', this.shoppingCart$.getValue());
+    this.CustomToastSvc.error(`${title} ${this.removeProductMessage}`);
+  }
+
+  // public incrementProduct (product: IMyProductsCar): void {
+
+  // }
 }

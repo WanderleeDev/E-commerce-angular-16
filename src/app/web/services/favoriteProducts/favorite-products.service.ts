@@ -2,23 +2,25 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 //  interface
 import { IProducts } from '../../interfaces/IProducts.interface';
+//  services
+import { CustomToastService } from '../customToast/custom-toast.service';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoriteProductsService {
   private myFavorites$ = new BehaviorSubject<IProducts[]>([]);
-  private newFavoriteMessage = 'product added to favorites';
+  private newFavoriteMessage = 'added to favorites';
   private repeatFavoriteMessage = 'removed from favorites';
+  private readonly localStorageKey = 'wishlist'
 
   constructor (
     private storageSvc: LocalStorageService,
-    private toastrSvc: ToastrService
+    private CustomToastSvc: CustomToastService
   ) {
-    const backupFavorites: IProducts[] | null = storageSvc.getLocalStorage('wishlist')
-    if (backupFavorites) this.updateFavorites(backupFavorites)
+    const backupFavorites: IProducts[] = storageSvc.getLocalStorage(this.localStorageKey);
+    if (backupFavorites?.length > 0) this.updateFavorites(backupFavorites);
   }
 
   public getFavoriteListObservable$(): Observable<IProducts[]> {
@@ -35,24 +37,22 @@ export class FavoriteProductsService {
   }
 
   private addFavorite (product: IProducts, previousFavorites: IProducts[] = []) {
-    const newFavorites = [...previousFavorites, product]
-    this.updateFavorites(newFavorites)
-    this.toastrSvc.success(`${product.title ?? 'product'} ${this.newFavoriteMessage}`)
+    this.updateFavorites([...previousFavorites, product]);
+    this.CustomToastSvc.info(`${product.title ?? 'product'} ${this.newFavoriteMessage}`);
   }
 
   public removeFavorite(product: IProducts): void {
     const filterFavorites = this.myFavorites$.getValue().filter((fav) =>  fav.id !== product.id);
     this.updateFavorites(filterFavorites);
-    this.toastrSvc.error(`${product.title ?? 'product'} ${this.repeatFavoriteMessage}`)
+    this.CustomToastSvc.warning(`${product.title ?? 'product'} ${this.repeatFavoriteMessage}`);
   }
 
   private updateFavorites(listFav: IProducts[]): void {
     this.myFavorites$.next(listFav);
-    this.storageSvc.saveLocalStorage('wishlist', listFav);
+    this.storageSvc.saveLocalStorage(this.localStorageKey, listFav);
   }
 
   public clearFavorites (): void {
-    this.myFavorites$.next([]);
-    this.storageSvc.removeLocalBackup('wishlist');
+    this.updateFavorites([]);
   }
 }

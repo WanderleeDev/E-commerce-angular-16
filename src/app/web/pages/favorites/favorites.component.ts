@@ -41,7 +41,6 @@ export class FavoritesComponent implements OnInit, OnDestroy {
   public addShoppingCart(products: IProducts[]): void {
     const myProductDto: IMyProductsCar[] = products.map(({ images, stock, ...product }) => ({ ...product, quantity: 1 }))
     this.shoppingCartSvc.updateShoppingCart(myProductDto);
-    // this.LocalStorageSvc.saveLocalStorage('shoppingCar', myProductDto);
     this.favoriteSvc.clearFavorites();
   }
 }
