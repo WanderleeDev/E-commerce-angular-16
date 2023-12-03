@@ -25,62 +25,40 @@ export class ShoppingCartService {
     private LocalStorageSvc: LocalStorageService,
     private toastrSvc: ToastrService
   ) {
-    this.setBackUpShoppingCar();
+    this.shoppingCart$.next(
+      this.LocalStorageSvc.getLocalStorage(this.localStorageKey)
+    );
+    console.log(this.shoppingCart$.getValue(), '+');
   }
 
   public getShopCartOb$(): Observable<IMyProductsCar[]> {
     return this.shoppingCart$.asObservable();
   }
 
-  private setBackUpShoppingCar(): void {
-    const backupShoppingCar: IMyProductsCar[] = this.LocalStorageSvc.getLocalStorage(this.localStorageKey);
-    this.shoppingCart$.next(backupShoppingCar);
-    // this.LocalStorageSvc.saveLocalStorage('shoppingCar', this.shoppingCart$.getValue());
-    // this.updateShoppingCart(backupShoppingCar);
-  }
-
   public updateShoppingCart(newProducts: IMyProductsCar[]): void {
-    const newProductsList = newProducts.map((product) => ({ ...product }));
-    const previousShoppingProducts = this.shoppingCart$.getValue();
-    const repeatProducts = previousShoppingProducts.flatMap((prevProduct) => {
-      const arr = newProductsList.filter((item) =>
-        this.areProductsEqual(item, prevProduct)
-      );
-      return arr;
-    });
+    const myProducts =this.unifyMyProducts(newProducts)
 
-    const summaryQuantity = repeatProducts.map((product) => {
-      const matchingProduct = previousShoppingProducts.find(
-        (item) => item.title === product.title
-      );
-      return (
-        matchingProduct && {
-          ...matchingProduct,
-          quantity: matchingProduct.quantity + product.quantity,
-        }
-      );
-    });
-
-    const noRepeatProducts = newProductsList.filter((product) =>
-      newProductsList.some((item) => {
-        return item.title.toLowerCase() === product.title.toLowerCase();
-      })
-    );
-
-    console.log('productos repetidos', repeatProducts);
-    console.log('suma de objetos repetidos', summaryQuantity);
-    console.log('productos no repetidos', noRepeatProducts);
-
-    // this.shoppingCart$.next(newProducts);
-    // this.toastrSvc.success(`${products.length} ${this.newProductMessage}`);
-    // this.LocalStorageSvc.saveLocalStorage('shoppingCar', newProducts);
+    this.shoppingCart$.next(myProducts);
+    this.toastrSvc.success(`${myProducts.length} ${this.newProductMessage}`);
+    this.LocalStorageSvc.saveLocalStorage('shoppingCar', this.shoppingCart$.getValue());
   }
 
-  private areProductsEqual(
-    productA: IMyProductsCar,
-    productB: IMyProductsCar
-  ): boolean {
-    return productA.title.toLowerCase() === productB.title.toLowerCase();
+  private unifyMyProducts (newProducts: IMyProductsCar[]): IMyProductsCar[] {
+    const unifiedProducts =  this.shoppingCart$.getValue().map(prevProduct => {
+      const matchingProducts = newProducts.filter(newProduct => newProduct.title.toLowerCase() === prevProduct.title.toLowerCase());
+
+      return matchingProducts.length > 0
+      ? {
+          ...prevProduct,
+          quantity: prevProduct.quantity + matchingProducts.reduce((prev, curr) => prev + curr.quantity, 0) }
+      : { ...prevProduct }
+    })
+
+    const newProductsNotInPrevious = newProducts.filter((nuevoProducto) => {
+      return !unifiedProducts.some((productoAnterior) => nuevoProducto.title.toLowerCase() === productoAnterior.title.toLowerCase());
+    });
+
+    return [...unifiedProducts,...newProductsNotInPrevious];
   }
 
   public getOrderSummary(): IOrderSummary {
