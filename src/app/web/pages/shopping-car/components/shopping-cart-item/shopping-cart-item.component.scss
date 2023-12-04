@@ -1,24 +1,34 @@
 .cardShop {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  @media screen and (width >= 40rem) {
+  @media screen and (width >= 28rem) {
+  justify-content: space-between;
+  }
+  @media screen and (width >= 35rem) {
     flex-wrap: nowrap;
   }
 
   &-figure {
     display: flex;
-    flex-flow: row wrap;
+    align-items: center;
+    flex-flow: column wrap;
     gap: 1rem;
+    @media screen and (width >= 28rem) {
+      max-width: 17rem;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+
   }
 
   &-link {
     position: relative;
     width: 5rem;
     height: 5rem;
-    
+
     img {
       border-radius: var(--radius-xs);
       border: solid .15rem transparent;
@@ -31,18 +41,25 @@
     }
   }
 
-
   &-data {
     display: grid;
     gap: .5rem;
     justify-content: space-between;
-    max-width: 10rem;
+    @media screen and (width >= 40rem) {
+      max-width: 10rem;
+    }
   }
 
   &-dataWrapper {
     display: flex;
     gap: .5rem;
     flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    @media screen and (width >= 23rem) {
+    justify-content: space-between;
+    text-align: initial;
+    }
   }
   &-price {
     &::first-letter {

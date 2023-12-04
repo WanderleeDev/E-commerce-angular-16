@@ -54,6 +54,11 @@
     object-fit: cover;
     border-radius: 50%;
     background-color: gray;
+    border: solid .1rem  transparent;
+    transition: border linear .1s;
+    &:hover {
+      border: solid .2rem black;
+    }
   }
 
   &-name {

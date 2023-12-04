@@ -1,5 +1,6 @@
 svg {
   transition: transform .2s linear;
+  color: currentColor;
 
   &:hover {
     transform: scale(.8);

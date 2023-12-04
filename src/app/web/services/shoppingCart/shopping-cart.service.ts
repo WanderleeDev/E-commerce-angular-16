@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { IMyProductsCar, IProducts } from '../../interfaces/IProducts.interface';
 // services
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
-import { CustomToastService } from '../customToast/custom-toast.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +12,9 @@ export class ShoppingCartService {
   private shoppingCart$ = new BehaviorSubject<IMyProductsCar[]>([]);
   private maxStock = 10;
   private readonly localStorageKey = 'shoppingCar';
-  private newProductMessage = 'products added to shopping cart';
-  private removeProductMessage = 'removed from shopping cart';
 
   constructor(
     private localStorageSvc: LocalStorageService,
-    // private CustomToastSvc: CustomToastService
   ) {
     this.shoppingCart$.next(this.localStorageSvc.getLocalStorage(this.localStorageKey));
   }
@@ -35,7 +31,6 @@ export class ShoppingCartService {
     const myProducts =this.unifyMyProducts(this.getPresentValue(), newProducts)
 
     this.shoppingCart$.next(myProducts);
-    // this.CustomToastSvc.success(`${newProducts.length} ${this.newProductMessage}`);
     this.localStorageSvc.saveLocalStorage('shoppingCar', myProducts);
   }
 
@@ -61,7 +56,6 @@ export class ShoppingCartService {
 
     this.shoppingCart$.next(newValue);
     this.localStorageSvc.saveLocalStorage('shoppingCar', newValue);
-    // this.CustomToastSvc.error(`${ title } ${ this.removeProductMessage }`);
   }
 
   public incrementProduct (id: number): void {

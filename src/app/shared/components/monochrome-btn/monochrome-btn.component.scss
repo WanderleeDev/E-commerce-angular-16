@@ -27,7 +27,7 @@
   & span {
     text-transform: capitalize;
     display: none;
-    @media screen and (width >= 500px) {
+    @media screen and (width >= 600px) {
       display: block;
     }
   }

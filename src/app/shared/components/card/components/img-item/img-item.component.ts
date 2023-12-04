@@ -12,6 +12,7 @@ import { FavoriteProductsService } from 'src/app/web/services/favoriteProducts/f
 })
 export class ImgItemComponent {
   @Input({required: true}) product!: IProducts;
+  protected hasFavoriteProduct = false;
 
   constructor (
     private imageErrorSvc: ImageErrorService,
@@ -24,6 +25,7 @@ export class ImgItemComponent {
 
   public favoriteHandler (): void {
     this.favoriteProductsSvc.toggleFavoriteProduct(this.product);
+    this.hasFavoriteProduct = !this.hasFavoriteProduct;
   }
 
 

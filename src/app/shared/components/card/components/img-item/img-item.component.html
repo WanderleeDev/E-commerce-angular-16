@@ -15,8 +15,9 @@
       {{product.title}}
     </figcaption>
   </a>
-  
+
   <button class="productCard-btn"
+  [class.myFavoriteProduct]="hasFavoriteProduct"
     (click)="favoriteHandler()"
     title="add favorite"
     type="button">

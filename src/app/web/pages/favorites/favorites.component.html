@@ -10,6 +10,7 @@
         <div class="whishList-product">
           <a class="whishList-link"
             [routerLink]="'/productView/' + li.id "
+            [title]="'View ' + li.title"
             [attr.aria-label]="'Go to see more details about ' + li.title">
             <img class="whishList-img"
               [ngSrc]="li.thumbnail"
