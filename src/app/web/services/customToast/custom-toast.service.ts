@@ -9,6 +9,10 @@ import { configToastr } from 'src/app/helpers/toastr.config';
   providedIn: 'root'
 })
 export class CustomToastService {
+  messages = {
+    error: 'Error',
+  }
+
   private toastrSvc = inject(ToastrService)
 
   public show(message: string, title = '') {

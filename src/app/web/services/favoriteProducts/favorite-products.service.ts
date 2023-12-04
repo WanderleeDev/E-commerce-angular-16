@@ -5,14 +5,14 @@ import { IProducts } from '../../interfaces/IProducts.interface';
 //  services
 import { CustomToastService } from '../customToast/custom-toast.service';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+//  messages
+import { MessageType } from 'src/app/helpers/toastr.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoriteProductsService {
   private myFavorites$ = new BehaviorSubject<IProducts[]>([]);
-  private newFavoriteMessage = 'added to favorites';
-  private repeatFavoriteMessage = 'removed from favorites';
   private readonly localStorageKey = 'wishlist'
 
   constructor (
@@ -38,13 +38,13 @@ export class FavoriteProductsService {
 
   private addFavorite (product: IProducts, previousFavorites: IProducts[] = []) {
     this.updateFavorites([...previousFavorites, product]);
-    this.CustomToastSvc.info(`${product.title ?? 'product'} ${this.newFavoriteMessage}`);
+    this.CustomToastSvc.info(`${product.title} ${MessageType.AddToWishlist}`);
   }
 
   public removeFavorite(product: IProducts): void {
     const filterFavorites = this.myFavorites$.getValue().filter((fav) =>  fav.id !== product.id);
     this.updateFavorites(filterFavorites);
-    this.CustomToastSvc.warning(`${product.title ?? 'product'} ${this.repeatFavoriteMessage}`);
+    this.CustomToastSvc.warning(`${product.title} ${MessageType.RemoveToWishlist}`);
   }
 
   private updateFavorites(listFav: IProducts[]): void {

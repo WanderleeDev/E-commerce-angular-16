@@ -1,3 +1,5 @@
+@use '../../../../assets/sass/mixins.scss' as *;
+
 .shoppingCar {
   min-height: 100dvh;
   display: flex;
@@ -7,5 +9,11 @@
   &-list {
     display: grid;
     gap: 3rem;
+    min-height: 20rem;
+    max-height: 30rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: .1rem;
+    @include customScrollbar();
   }
 }

@@ -25,4 +25,6 @@ export class ImgItemComponent {
   public favoriteHandler (): void {
     this.favoriteProductsSvc.toggleFavoriteProduct(this.product);
   }
+
+
 }

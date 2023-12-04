@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 //  service
 import { ShoppingCartService } from '../../services/shoppingCart/shopping-cart.service';
+import { OrderSummaryService } from '../../services/orderSummary/order-summary.service';
 //  interfaces
 import { IMyProductsCar } from '../../interfaces/IProducts.interface';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -19,6 +20,7 @@ export class ShoppingCarComponent implements OnInit, OnDestroy {
 
   constructor (
     private shoppingCartSvc: ShoppingCartService,
+    private orderSummarySvc: OrderSummaryService,
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class ShoppingCarComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res =>  {
           this.productsList = [...res],
-          this.orderSummary = this.shoppingCartSvc.getOrderSummary()
+          this.orderSummary = this.orderSummarySvc.getOrderSummary()
         }),
         error: (err: HttpErrorResponse) => console.log(err.message),
         complete: () => console.log('data obtain')

@@ -1,4 +1,4 @@
-<div class="cardShop">
+<li class="cardShop">
   <figure class="cardShop-figure">
     <a class="cardShop-link"
       [routerLink]="'/productView/' + product.id"
@@ -21,10 +21,10 @@
           {{product.price | currency}}
         </span>
       </figcaption>
-      <app-quantity-counter [totalProduct]="product.quantity"/>
+      <app-quantity-counter [productId]="product.id" [totalProduct]="product.quantity"/>
     </div>
   </figure>
 
   <app-monochrome-btn (click)="removeProduct(product.id, product.title)" dataBtn="remove"/>
-</div>
+</li>
 

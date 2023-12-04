@@ -22,8 +22,8 @@
     max-height: 30rem;
     overflow-y: scroll;
     overflow-x: hidden;
-    @include customScrollbar();
     padding-right: .1rem;
+    @include customScrollbar();
   }
 
   &-item {
