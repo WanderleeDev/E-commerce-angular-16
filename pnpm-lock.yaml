@@ -28,6 +28,9 @@ dependencies:
   '@types/dom-speech-recognition':
     specifier: ^0.0.4
     version: 0.0.4
+  ngx-infinite-scroll:
+    specifier: ^17.0.0
+    version: 17.0.0(@angular/common@16.1.0)(@angular/core@16.1.0)
   ngx-toastr:
     specifier: ^18.0.0
     version: 18.0.0(@angular/common@16.1.0)(@angular/core@16.1.0)(@angular/platform-browser@16.1.0)
@@ -6009,6 +6012,17 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /ngx-infinite-scroll@17.0.0(@angular/common@16.1.0)(@angular/core@16.1.0):
+    resolution: {integrity: sha512-pQXLuRiuhRuDKD3nmgyW1V08JVNBepmk6nb8qjHc5hgsWNts01+R/p33rYcRDzcut6/PWqGyrZ9o9i8swzMYMA==}
+    peerDependencies:
+      '@angular/common': '>=17.0.0 <18.0.0'
+      '@angular/core': '>=17.0.0 <18.0.0'
+    dependencies:
+      '@angular/common': 16.1.0(@angular/core@16.1.0)(rxjs@7.8.0)
+      '@angular/core': 16.1.0(rxjs@7.8.0)(zone.js@0.13.0)
+      tslib: 2.5.3
+    dev: false
 
   /ngx-toastr@18.0.0(@angular/common@16.1.0)(@angular/core@16.1.0)(@angular/platform-browser@16.1.0):
     resolution: {integrity: sha512-jZ3rOG6kygl8ittY8OltIMSo47P1VStuS01igm3MZXK6InJwHVvxU7wDHI/HGMlXSyNvWncyOuFHnnMEAifsew==}
