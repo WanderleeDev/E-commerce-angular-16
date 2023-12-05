@@ -25,7 +25,7 @@ export class RecommendedProductsComponent implements OnInit {
     this.httpProductsSvc.getProductsForCategory(this.category)
       .pipe(
         take(1),
-        map(res => res.map(product => product.thumbnail)),
+        map(res => res.products.map(product => product.thumbnail)),
         catchError((err: HttpErrorResponse) => {
           console.log(err.message);
           return []

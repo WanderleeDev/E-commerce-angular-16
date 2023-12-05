@@ -1,4 +1,9 @@
-<app-gallery [titleSection]="categoryName" infinite-scroll>
+<app-gallery [titleSection]="categoryName"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+  >
   <app-search-box/>
-  <app-card [productData]="product" *ngFor="let product of products$ | async"/>
+  <app-card [productData]="product" *ngFor="let product of listProducts"/>
 </app-gallery>

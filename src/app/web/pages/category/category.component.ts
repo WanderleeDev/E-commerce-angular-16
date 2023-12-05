@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
+//  services
 import { HttpProductsService } from '../../services/HttpProducts/http-products.service';
+// interfaces
 import { IProducts } from '../../interfaces/IProducts.interface';
 
 @Component({
@@ -11,38 +13,55 @@ import { IProducts } from '../../interfaces/IProducts.interface';
   styleUrls: [],
 })
 export class CategoryComponent implements OnInit {
+  private limit = 10;
+  private skip = 0;
+  private total!: number;
   protected categoryName = 'loading...';
-  protected products$!: Observable<IProducts[]>;
+  private listCategories:string[] = [];
+  listProducts:IProducts[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private httpProductsSvc: HttpProductsService
+    private httpProductsSvc: HttpProductsService,
   ) {}
 
   ngOnInit(): void {
+    this.total = 0;
     this.loadCategories();
   }
 
   private loadCategories(): void {
     this.httpProductsSvc.getCategories().subscribe((categories) => {
-      const listCategories: string[] = categories;
-      this.loadProducts(listCategories);
+      this.listCategories = categories;
+      this.loadProducts(this.listCategories);
     });
   }
 
   private loadProducts(listCategories: string[]): void {
-    this.products$ = this.activatedRoute.paramMap.pipe(
+    this.activatedRoute.paramMap.pipe(
       switchMap((params) => {
         const category: string | null = params.get('category');
 
-        if (category && listCategories.includes(category)) {
-          this.categoryName = category;
-          return this.httpProductsSvc.getProductsForCategory(category);
-        } else {
-          this.categoryName = 'all products';
-          return this.httpProductsSvc.getAllProducts();
-        }
+        return (category && listCategories.includes(category))
+          ? (this.categoryName = category,
+            this.httpProductsSvc.getProductsForCategory(category))
+          : (this.categoryName = 'all products',
+            this.httpProductsSvc.getAllProducts(this.limit, this.skip))
       })
-    );
+    ).pipe(take(1))
+    .subscribe({
+      next: (res) => {
+        this.total = res.total;
+        this.listProducts = [...this.listProducts, ...res.products]
+      },
+      error: (err: HttpErrorResponse) => console.error(err.message),
+      complete: () => console.log('complete')
+    })
+  }
+
+  public onScroll(): void {
+    if (this.limit >= this.total) return
+    this.skip += 10;
+    this.loadProducts(this.listCategories);
   }
 }

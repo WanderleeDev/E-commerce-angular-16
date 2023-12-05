@@ -4,6 +4,7 @@ import { ProductRoutingModule } from './category-routing.module';
 
 import { CategoryComponent } from './category.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 //  modules
 
 
@@ -12,7 +13,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     ProductRoutingModule,
-    SharedModule
+    SharedModule,
+    InfiniteScrollModule
   ]
 })
 export class CategoryModule { }

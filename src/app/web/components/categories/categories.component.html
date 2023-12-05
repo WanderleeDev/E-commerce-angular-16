@@ -9,6 +9,7 @@
         (error)="errorImageLoaded($event)"
         [ngSrc]="category.img"
         [alt]="['category ' + category.item]"
+        priority
         fill>
       <h3 class="categories-name">
         {{category.item}}

@@ -27,6 +27,4 @@ export class ImgItemComponent {
     this.favoriteProductsSvc.toggleFavoriteProduct(this.product);
     this.hasFavoriteProduct = !this.hasFavoriteProduct;
   }
-
-
 }
